@@ -1,0 +1,70 @@
+version: '2'
+
+networks:
+  my-network:
+
+services:
+
+  rca-org0:
+    container_name: rca-org0
+    image: hyperledger/fabric-ca
+    command: /bin/bash -c '/scripts/start-root-ca.sh 2>&1 | tee /data/logs/rca-org0.log'
+    environment:
+      - FABRIC_CA_SERVER_HOME=/etc/hyperledger/fabric-ca
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_CSR_CN=rca-org0
+      - FABRIC_CA_SERVER_CSR_HOSTS=rca-org0
+      - FABRIC_CA_SERVER_DEBUG=true
+      - BOOTSTRAP_USER_PASS=rca-org0-admin:rca-org0-adminpw
+      - TARGET_CERTFILE=/data/org0-ca-cert.pem
+      - FABRIC_ORGS=org0 org1 org2
+    volumes:
+      - ./scripts:/scripts
+      - ./data:/data
+    networks:
+      - my-network
+
+  setup:
+    container_name: setup
+    image: hyperledger/fabric-ca-tools
+    command: /bin/bash -c '/scripts/setup-fabric.sh 2>&1 | tee /data/logs/setup.log; sleep 99999'
+    volumes:
+      - ./scripts:/scripts
+      - ./data:/data
+    networks:
+      - my-network
+    depends_on:
+      - rca-org0
+
+  orderer1-org0:
+    container_name: orderer1-org0
+    image: hyperledger/fabric-ca-orderer
+    environment:
+      - FABRIC_CA_CLIENT_HOME=/etc/hyperledger/orderer
+      - FABRIC_CA_CLIENT_TLS_CERTFILES=/data/org0-ca-cert.pem
+      - ENROLLMENT_URL=https://orderer1-org0:orderer1-org0pw@rca-org0:7054
+      - ORDERER_HOME=/etc/hyperledger/orderer
+      - ORDERER_HOST=orderer1-org0
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/data/genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=org0MSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/orderer/msp
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/data/org0-ca-cert.pem]
+      - ORDERER_GENERAL_TLS_CLIENTAUTHREQUIRED=true
+      - ORDERER_GENERAL_TLS_CLIENTROOTCAS=[/data/org0-ca-cert.pem]
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_DEBUG_BROADCASTTRACEDIR=data/logs
+      - ORG=org0
+      - ORG_ADMIN_CERT=/data/orgs/org0/msp/admincerts/cert.pem
+    command: /bin/bash -c '/scripts/start-orderer.sh 2>&1 | tee /data/logs/orderer1-org0.log'
+    volumes:
+      - ./scripts:/scripts
+      - ./data:/data
+    networks:
+      - my-network
+    depends_on:
+      - setup
