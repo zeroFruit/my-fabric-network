@@ -25,6 +25,8 @@ NUM_PEERS=2
 
 ZOOKEEPER_ORGS="org0"
 NUM_ZOOKEEPERS=3
+ZOOKEEPER_FOLLOWER_PORT=2888
+ZOOKEEPER_ELECTION_PORT=3888
 
 KAFKA_ORGS="org0"
 NUM_KAFKAS=4
@@ -52,9 +54,6 @@ CHANNEL_TX_FILE=/$DATA/channel.tx
 # Name of test channel
 CHANNEL_NAME=mychannel
 
-# Query timeout in seconds
-QUERY_TIMEOUT=15
-
 # Setup timeout in seconds (for setup container to complete)
 SETUP_TIMEOUT=120
 
@@ -67,28 +66,11 @@ SETUP_SUCCESS_FILE=${LOGDIR}/setup.successful
 # The setup container's log file
 SETUP_LOGFILE=${LOGDIR}/setup.log
 
-# The run container's log file
-RUN_LOGFILE=${LOGDIR}/run.log
-# The run container's summary log file
-RUN_SUMFILE=${LOGDIR}/run.sum
-RUN_SUMPATH=/${RUN_SUMFILE}
-# Run success and failure files
-RUN_SUCCESS_FILE=${LOGDIR}/run.success
-RUN_FAIL_FILE=${LOGDIR}/run.fail
-
-# Affiliation is not used to limit users in this sample, so just put
-# all identities in the same affiliation.
-export FABRIC_CA_CLIENT_ID_AFFILIATION=org1
-
 # Set to true to enable use of intermediate CAs
 USE_INTERMEDIATE_CA=true
 
+ORDERER_MODE="kafka"
 
-# Config block file path
-CONFIG_BLOCK_FILE=/tmp/config_block.pb
-
-# Update config block payload file path
-CONFIG_UPDATE_ENVELOPE_FILE=/tmp/config_update_as_envelope.pb
 
 # initOrgVars <ORG>
 function initOrgVars {
@@ -175,6 +157,23 @@ function initOrdererVars {
    export ORDERER_GENERAL_TLS_PRIVATEKEY=$TLSDIR/server.key
    export ORDERER_GENERAL_TLS_CERTIFICATE=$TLSDIR/server.crt
    export ORDERER_GENERAL_TLS_ROOTCAS=[$CA_CHAINFILE]
+
+   if test "$ORDERER_MODE" = "kafka"; then
+       export ORDERER_KAFKA_RETRY_SHORTINTERVAL=1s
+       export ORDERER_KAFKA_RETRY_SHORTTOTAL=30s
+       export ORDERER_KAFKA_VERBOSE=true
+   fi
+
+}
+
+function initZookeeperVars {
+    local org=$1
+    local num=$2
+
+    ZOOKEEPER_HOST=zookeeper${num}-${org}
+    ZOOKEEPER_NAME=zookeeper${num}-${org}
+    ZOOKEEPER_LOGFILE=$LOGDIR/${ZOOKEEPER_NAME}.log
+    MYHOME=/etc/hyperledger/zookeeper
 }
 
 # initPeerVars <ORG> <NUM>

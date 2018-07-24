@@ -10,14 +10,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.498002">
+    <splitter split-orientation="horizontal" split-proportion="0.252483">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="docker-compose.yaml" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="142">
-                  <caret line="213" column="13" lean-forward="true" selection-start-line="213" selection-start-column="13" selection-end-line="213" selection-end-column="13" />
+                <state relative-caret-position="716">
+                  <caret line="418" column="18" selection-start-line="418" selection-start-column="18" selection-end-line="418" selection-end-column="18" />
                 </state>
               </provider>
             </entry>
@@ -65,7 +65,7 @@
             <entry file="file://$PROJECT_DIR$/data/configtx.yaml">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="446">
-                  <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+                  <caret line="102" selection-start-line="102" selection-end-line="102" />
                 </state>
               </provider>
             </entry>
@@ -82,59 +82,70 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file leaf-file-name="env.sh" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/scripts/env.sh">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1266">
-                  <caret line="278" column="1" selection-start-line="278" selection-start-column="1" selection-end-line="278" selection-end-column="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="start-root-ca.sh" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/scripts/start-root-ca.sh">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="setup-fabric.sh" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/scripts/setup-fabric.sh">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="479">
-                  <caret line="114" column="32" lean-forward="true" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="makeDocker.sh" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/makeDocker.sh">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="242">
-                  <caret line="173" column="38" lean-forward="true" selection-start-line="173" selection-start-column="38" selection-end-line="173" selection-end-column="38" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="start.sh" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/start.sh">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="15" selection-start-line="15" selection-end-line="15" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
+        <splitter split-orientation="horizontal" split-proportion="0.5">
+          <split-first>
+            <leaf>
+              <file leaf-file-name="start-root-ca.sh" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/scripts/start-root-ca.sh">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="255">
+                      <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="setup-fabric.sh" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/scripts/setup-fabric.sh">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="14">
+                      <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="makeDocker.sh" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/makeDocker.sh">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="498">
+                      <caret line="255" column="4" selection-start-line="255" selection-start-column="4" selection-end-line="255" selection-end-column="4" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="start.sh" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/start.sh">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="225">
+                      <caret line="15" selection-start-line="15" selection-end-line="15" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf>
+              <file leaf-file-name="env.sh" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/scripts/env.sh">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="466">
+                      <caret line="173" column="37" selection-start-line="173" selection-start-column="37" selection-end-line="173" selection-end-column="37" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
       </split-second>
     </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Error</find>
+      <find>FABRIC_CA_CLIENT_ID</find>
+      <find>QUERY_TIME</find>
+      <find>initKafka</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -150,8 +161,8 @@
         <option value="$PROJECT_DIR$/start.sh" />
         <option value="$PROJECT_DIR$/scripts/start-intermediate-ca.sh" />
         <option value="$PROJECT_DIR$/scripts/start-peer.sh" />
-        <option value="$PROJECT_DIR$/scripts/env.sh" />
         <option value="$PROJECT_DIR$/scripts/setup-fabric.sh" />
+        <option value="$PROJECT_DIR$/scripts/env.sh" />
         <option value="$PROJECT_DIR$/makeDocker.sh" />
       </list>
     </option>
@@ -293,7 +304,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13821000" />
+    <option name="totallyTimeSpent" value="18795000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="77" y="125" width="2225" height="1110" extended-state="0" />
@@ -548,13 +559,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/start-root-ca.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/start-orderer.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -657,13 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/env.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1266">
-          <caret line="278" column="1" selection-start-line="278" selection-start-column="1" selection-end-line="278" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/logs/peer2-org2.log">
       <provider selected="true" editor-type-id="LogFileEditorProvider">
         <state relative-caret-position="-9504">
@@ -674,28 +671,42 @@
     <entry file="file://$PROJECT_DIR$/data/configtx.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="446">
-          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+          <caret line="102" selection-start-line="102" selection-end-line="102" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
+    <entry file="file://$PROJECT_DIR$/scripts/start-root-ca.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="213" column="13" lean-forward="true" selection-start-line="213" selection-start-column="13" selection-end-line="213" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/makeDocker.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="173" column="38" lean-forward="true" selection-start-line="173" selection-start-column="38" selection-end-line="173" selection-end-column="38" />
+        <state relative-caret-position="255">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/setup-fabric.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="114" column="32" lean-forward="true" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
+        <state relative-caret-position="14">
+          <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="716">
+          <caret line="418" column="18" selection-start-line="418" selection-start-column="18" selection-end-line="418" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/env.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="173" column="37" selection-start-line="173" selection-start-column="37" selection-end-line="173" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/makeDocker.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="255" column="4" selection-start-line="255" selection-start-column="4" selection-end-line="255" selection-end-column="4" />
         </state>
       </provider>
     </entry>

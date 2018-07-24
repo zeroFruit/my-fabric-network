@@ -25,97 +25,21 @@ function main {
    log "Created docker-compose.yaml"
 }
 
+function writeHeader {
+   echo "version: '2'
+
+networks:
+  $NETWORK:
+
+services:
+"
+}
+
 # Write services for the root fabric CA servers
 function writeRootFabricCA {
    for ORG in $ORGS; do
       initOrgVars $ORG
       writeRootCA
-   done
-}
-
-# Write services for the intermediate fabric CA servers
-function writeIntermediateFabricCA {
-   for ORG in $ORGS; do
-      initOrgVars $ORG
-      writeIntermediateCA
-   done
-}
-
-# Write a service to setup the fabric artifacts (e.g. genesis block, etc)
-function writeSetupFabric {
-   echo "  setup:
-    container_name: setup
-    image: hyperledger/fabric-ca-tools
-    command: /bin/bash -c '/scripts/setup-fabric.sh 2>&1 | tee /$SETUP_LOGFILE; sleep 99999'
-    volumes:
-      - ./scripts:/scripts
-      - ./$DATA:/$DATA
-    networks:
-      - $NETWORK
-    depends_on:"
-   for ORG in $ORGS; do
-      initOrgVars $ORG
-      echo "      - $CA_NAME"
-   done
-   echo ""
-}
-
-# Write services for fabric orderer and peer containers
-function writeStartFabric {
-   for ORG in $ORDERER_ORGS; do
-      COUNT=1
-      while [[ "$COUNT" -le $NUM_ORDERERS ]]; do
-         initOrdererVars $ORG $COUNT
-         writeOrderer $COUNT
-         COUNT=$((COUNT+1))
-      done
-   done
-   for ORG in $PEER_ORGS; do
-      COUNT=1
-      while [[ "$COUNT" -le $NUM_PEERS ]]; do
-         initPeerVars $ORG $COUNT
-         writePeer
-         COUNT=$((COUNT+1))
-      done
-   done
-}
-
-# Write a service to run a fabric test including creating a channel,
-# installing chaincode, invoking and querying
-function writeRunFabric {
-   # Set samples directory relative to this script
-   SAMPLES_DIR=$(dirname $(cd ${SDIR} && pwd))
-   # Set fabric directory relative to GOPATH
-   FABRIC_DIR=${GOPATH}/src/github.com/hyperledger/fabric
-   echo "  run:
-    container_name: run
-    image: hyperledger/fabric-ca-tools
-    environment:
-      - GOPATH=/opt/gopath
-    command: /bin/bash -c 'sleep 3;/scripts/run-fabric.sh 2>&1 | tee /$RUN_LOGFILE; sleep 99999'
-    volumes:
-      - ./scripts:/scripts
-      - ./$DATA:/$DATA
-      - ${SAMPLES_DIR}:/opt/gopath/src/github.com/hyperledger/fabric-samples
-      - ${FABRIC_DIR}:/opt/gopath/src/github.com/hyperledger/fabric
-    networks:
-      - $NETWORK
-    depends_on:"
-   for ORG in $ORDERER_ORGS; do
-      COUNT=1
-      while [[ "$COUNT" -le $NUM_ORDERERS ]]; do
-         initOrdererVars $ORG $COUNT
-         echo "      - $ORDERER_NAME"
-         COUNT=$((COUNT+1))
-      done
-   done
-   for ORG in $PEER_ORGS; do
-      COUNT=1
-      while [[ "$COUNT" -le $NUM_PEERS ]]; do
-         initPeerVars $ORG $COUNT
-         echo "      - $PEER_NAME"
-         COUNT=$((COUNT+1))
-      done
    done
 }
 
@@ -139,6 +63,14 @@ function writeRootCA {
     networks:
       - $NETWORK
 "
+}
+
+# Write services for the intermediate fabric CA servers
+function writeIntermediateFabricCA {
+   for ORG in $ORGS; do
+      initOrgVars $ORG
+      writeIntermediateCA
+   done
 }
 
 function writeIntermediateCA {
@@ -166,6 +98,50 @@ function writeIntermediateCA {
     depends_on:
       - $ROOT_CA_NAME
 "
+}
+
+# Write a service to setup the fabric artifacts (e.g. genesis block, etc)
+function writeSetupFabric {
+   echo "  setup:
+    container_name: setup
+    image: hyperledger/fabric-ca-tools
+    command: /bin/bash -c '/scripts/setup-fabric.sh 2>&1 | tee /$SETUP_LOGFILE; sleep 99999'
+    volumes:
+      - ./scripts:/scripts
+      - ./$DATA:/$DATA
+    networks:
+      - $NETWORK
+    depends_on:"
+   for ORG in $ORGS; do
+      initOrgVars $ORG
+      echo "      - $CA_NAME"
+   done
+   echo ""
+}
+
+# Write services for fabric orderer and peer containers
+function writeStartFabric {
+   for ORDERER_ORG in $ORDERER_ORGS; do
+      COUNT=1
+      while [[ "$COUNT" -le $NUM_ORDERERS ]]; do
+         initOrdererVars $ORDERER_ORG $COUNT
+         writeOrderer $COUNT
+         COUNT=$((COUNT+1))
+      done
+   done
+
+   for ORG in $PEER_ORGS; do
+      COUNT=1
+      while [[ "$COUNT" -le $NUM_PEERS ]]; do
+         initPeerVars $ORG $COUNT
+         writePeer
+         COUNT=$((COUNT+1))
+      done
+   done
+
+   if test "$ORDERER_MODE" = "kafka"; then
+        writeZookeeperList
+   fi
 }
 
 function writeOrderer {
@@ -260,14 +236,50 @@ function writePeer {
 "
 }
 
-function writeHeader {
-   echo "version: '2'
+function writeZookeeperList {
+    for zookeeper_org in $ZOOKEEPER_ORGS; do
+        local count=1
+        while [[ "$count" -le $NUM_ZOOKEEPERS ]]; do
+            writeZookeeper $zookeeper_org $count
+            count=$(($count+1))
+        done
+    done
 
-networks:
-  $NETWORK:
+}
 
-services:
-"
+function writeZookeeper {
+    local org=$1
+    local num=$2
+
+    makeZooServersEnv
+    initZookeeperVars $org $num
+
+    echo "  $ZOOKEEPER_NAME:
+    container_name: $ZOOKEEPER_NAME
+    image: hyperledger/fabric-zookeeper
+    environment:
+      - ZOO_SERVERS=$ZOO_SERVERS
+      - ZOO_MY_ID=$NUM
+    restart: always
+    ports:
+      - $(( ($num-1) * 10000 + 2181 )):2181
+      - $(( ($num-1) * 10000 + 2888 )):2888
+      - $(( ($num-1) * 10000 + 3888 )):3888
+    "
+}
+
+function makeZooServersEnv {
+    ZOO_SERVERS=""
+
+    for ZOOKEEPER_ORG in $ZOOKEEPER_ORGS; do
+        local count=1
+        while [[ "$count" -le $NUM_ZOOKEEPERS ]]; do
+            initZookeeperVars $ZOOKEEPER_ORG $count
+            ZOO_SERVERS="$ZOO_SERVERS server.$count=$ZOOKEEPER_NAME:$ZOOKEEPER_FOLLOWER_PORT:$ZOOKEEPER_ELECTION_PORT"
+            count=$((count+1))
+        done
+    done
+
 }
 
 main
