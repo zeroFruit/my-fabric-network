@@ -17,7 +17,7 @@ services:
       - FABRIC_CA_SERVER_DEBUG=true
       - BOOTSTRAP_USER_PASS=rca-org0-admin:rca-org0-adminpw
       - TARGET_CERTFILE=/data/org0-ca-cert.pem
-      - FABRIC_ORGS=org0 org1 org2
+      - FABRIC_ORGS=org0 
     volumes:
       - ./scripts:/scripts
       - ./data:/data
@@ -68,3 +68,4 @@ services:
       - my-network
     depends_on:
       - setup
+

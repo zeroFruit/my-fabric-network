@@ -7,6 +7,9 @@ source ${SDIR}/clean.sh
 
 cd ${SDIR}
 
+# Create docker-compose file
+${SDIR}/makeDocker.sh
+
 # Create the docker containers
 log "Creating docker containers ..."
 docker-compose up -d
