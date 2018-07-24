@@ -21,15 +21,6 @@ function main {
    touch /$SETUP_SUCCESS_FILE
 }
 
-# Enroll the CA administrator
-function enrollCAAdmin {
-   waitPort "$CA_NAME to start" 90 $CA_LOGFILE $CA_HOST 7054
-
-   export FABRIC_CA_CLIENT_HOME=$HOME/cas/$CA_NAME
-   export FABRIC_CA_CLIENT_TLS_CERTFILES=$CA_CHAINFILE
-   fabric-ca-client enroll -d -u https://$CA_ADMIN_USER_PASS@$CA_HOST:7054
-}
-
 function registerIdentities {
    log "Registering identities ..."
    registerOrdererIdentities
@@ -74,12 +65,21 @@ function registerPeerIdentities {
    done
 }
 
+# Enroll the CA administrator
+function enrollCAAdmin {
+   waitPort "$CA_NAME to start" 90 $CA_LOGFILE $CA_HOST 7054
+   log "Enrolling with $CA_NAME as bootstrap identity ..."
+   export FABRIC_CA_CLIENT_HOME=$HOME/cas/$CA_NAME
+   export FABRIC_CA_CLIENT_TLS_CERTFILES=$CA_CHAINFILE
+   fabric-ca-client enroll -d -u https://$CA_ADMIN_USER_PASS@$CA_HOST:7054
+}
+
 function getCACerts {
    log "Getting CA certificates ..."
    for ORG in $ORGS; do
       initOrgVars $ORG
       log "Getting CA certs for organization $ORG and storing in $ORG_MSP_DIR"
-
+      export FABRIC_CA_CLIENT_TLS_CERTFILES=$CA_CHAINFILE
       fabric-ca-client getcacert -d -u https://$CA_HOST:7054 -M $ORG_MSP_DIR
       finishMSPSetup $ORG_MSP_DIR
       # If ADMINCERTS is true, we need to enroll the admin now to populate the admincerts directory
@@ -213,6 +213,39 @@ Application: &ApplicationDefaults
    } > /etc/hyperledger/fabric/configtx.yaml
    # Copy it to the data directory to make debugging easier
    cp /etc/hyperledger/fabric/configtx.yaml /$DATA
+}
+
+# printOrg
+function printOrg {
+   echo "
+  - &$ORG_CONTAINER_NAME
+
+    Name: $ORG
+
+    # ID to load the MSP definition as
+    ID: $ORG_MSP_ID
+
+    # MSPDir is the filesystem path which contains the MSP configuration
+    MSPDir: $ORG_MSP_DIR"
+}
+
+# printOrdererOrg <ORG>
+function printOrdererOrg {
+   initOrgVars $1
+   printOrg
+}
+
+# printPeerOrg <ORG> <COUNT>
+function printPeerOrg {
+   initPeerVars $1 $2
+   printOrg
+   echo "
+    AnchorPeers:
+       # AnchorPeers defines the location of peers which can be used
+       # for cross org gossip communication.  Note, this value is only
+       # encoded in the genesis block in the Application section context
+       - Host: $PEER_HOST
+         Port: 7051"
 }
 
 function generateChannelArtifacts() {

@@ -40,7 +40,7 @@
 #############################################################################
 
 # URL of the Fabric-ca-server (default: http://localhost:7054)
-url: https://rca-org0:7054
+url: https://ica-org0:7054
 
 # Membership Service Provider (MSP) directory
 # This is useful when the client is used to enroll a peer or orderer, so
@@ -108,7 +108,7 @@ csr:
       O: Hyperledger
       OU: Fabric
   hosts:
-    - e85f86e270aa
+    - f9ee5bac4d67
 
 #############################################################################
 #  Registration section used to register a new identity with fabric-ca server

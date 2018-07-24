@@ -1,0 +1,740 @@
+##### 2018-07-24 06:43:43 Waiting for the 'setup' container to finish registering identities, creating the genesis block and other artifacts .....
+2018/07/24 06:43:45 [DEBUG] Home directory: /opt/gopath/src/github.com/hyperledger/fabric/peer
+2018/07/24 06:43:45 [INFO] Created a default configuration file at /opt/gopath/src/github.com/hyperledger/fabric/peer/fabric-ca-client-config.yaml
+2018/07/24 06:43:45 [DEBUG] Client configuration settings: &{URL:https://peer2-org2:peer2-org2pw@ica-org2:7054 MSPDir:/tmp/tls TLS:{Enabled:true CertFiles:[/data/org2-ca-chain.pem] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile:tls Label: CSR:<nil> CAName: AttrReqs:[]  } CSR:{CN:peer2-org2 Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[peer2-org2] KeyRequest:<nil> CA:<nil> SerialNumber:} ID:{Name: Type:client Secret: MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:} Revoke:{Name: Serial: AKI: Reason: CAName: GenCRL:false} CAInfo:{CAName:} CAName: CSP:0xc4201b2bd0}
+2018/07/24 06:43:45 [DEBUG] Entered runEnroll
+2018/07/24 06:43:45 [DEBUG] Enrolling { Name:peer2-org2 Secret:**** Profile:tls Label: CSR:&{peer2-org2 [{US North Carolina  Hyperledger Fabric }] [peer2-org2] <nil> <nil> } CAName: AttrReqs:[]  }
+2018/07/24 06:43:45 [DEBUG] Initializing client with config: &{URL:https://ica-org2:7054 MSPDir:/tmp/tls TLS:{Enabled:true CertFiles:[/data/org2-ca-chain.pem] Client:{KeyFile: CertFile:}} Enrollment:{ Name:peer2-org2 Secret:**** Profile:tls Label: CSR:&{peer2-org2 [{US North Carolina  Hyperledger Fabric }] [peer2-org2] <nil> <nil> } CAName: AttrReqs:[]  } CSR:{CN:peer2-org2 Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[peer2-org2] KeyRequest:<nil> CA:<nil> SerialNumber:} ID:{Name: Type:client Secret: MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:} Revoke:{Name: Serial: AKI: Reason: CAName: GenCRL:false} CAInfo:{CAName:} CAName: CSP:0xc4201b2bd0}
+2018/07/24 06:43:45 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc4201b2c30 PluginOpts:<nil> Pkcs11Opts:<nil>}
+2018/07/24 06:43:45 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc4201c8070 DummyKeystore:<nil>}
+2018/07/24 06:43:45 [INFO] TLS Enabled
+2018/07/24 06:43:45 [DEBUG] CA Files: [/data/org2-ca-chain.pem]
+2018/07/24 06:43:45 [DEBUG] Client Cert File: 
+2018/07/24 06:43:45 [DEBUG] Client Key File: 
+2018/07/24 06:43:45 [DEBUG] Client TLS certificate and/or key file not provided
+2018/07/24 06:43:45 [DEBUG] GenCSR &{CN:peer2-org2 Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[peer2-org2] KeyRequest:<nil> CA:<nil> SerialNumber:}
+2018/07/24 06:43:45 [INFO] generating key: &{A:ecdsa S:256}
+2018/07/24 06:43:45 [DEBUG] generate key from request: algo=ecdsa, size=256
+2018/07/24 06:43:45 [INFO] encoded CSR
+2018/07/24 06:43:45 [DEBUG] Sending request
+POST https://ica-org2:7054/enroll
+{"hosts":["peer2-org2"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBRTCB7AIBADBiMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxEzARBgNV\nBAMTCnBlZXIyLW9yZzIwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS1TJ6AG1oI\nqyCk7Uy4XPOj3vS4+Cn826Bc8t15MHw6kDR0YDP7Oqwnc6VZlDe3pzGAOQzF/92e\nawV5YPZjd5WNoCgwJgYJKoZIhvcNAQkOMRkwFzAVBgNVHREEDjAMggpwZWVyMi1v\ncmcyMAoGCCqGSM49BAMCA0gAMEUCIQDwD3NfrddYSIVPrSlcIbcGnVaFtdskeOn+\nS50hDJgwyAIgDneJFEpRo5xEAw6tYdg4XbZfxhkTI1Lhkm79nIeCrss=\n-----END CERTIFICATE REQUEST-----\n","profile":"tls","crl_override":"","label":"","NotBefore":"0001-01-01T00:00:00Z","NotAfter":"0001-01-01T00:00:00Z","CAName":""}
+2018/07/24 06:43:45 [DEBUG] Received response
+statusCode=201 (201 Created)
+2018/07/24 06:43:45 [DEBUG] Response body result: map[Cert:LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN6VENDQW5TZ0F3SUJBZ0lVYUlQNkErdTgwbXpzUlhraUJKL0pMcWtWSnlvd0NnWUlLb1pJemowRUF3SXcKWmpFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1kyeHBaVzUwTVJjd0ZRWURWUVFERXc1eVkyRXRiM0puCk1pMWhaRzFwYmpBZUZ3MHhPREEzTWpRd05qTTVNREJhRncweE9UQTNNalF3TmpRME1EQmFNRzB4Q3pBSkJnTlYKQkFZVEFsVlRNUmN3RlFZRFZRUUlFdzVPYjNKMGFDQkRZWEp2YkdsdVlURVVNQklHQTFVRUNoTUxTSGx3WlhKcwpaV1JuWlhJeEdqQUxCZ05WQkFzVEJIQmxaWEl3Q3dZRFZRUUxFd1J2Y21jeE1STXdFUVlEVlFRREV3cHdaV1Z5Ck1pMXZjbWN5TUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJemowREFRY0RRZ0FFdFV5ZWdCdGFDS3NncE8xTXVGenoKbzk3MHVQZ3AvTnVnWFBMZGVUQjhPcEEwZEdBeit6cXNKM09sV1pRM3Q2Y3hnRGtNeGYvZG5tc0ZlV0QyWTNlVgpqYU9CK0RDQjlUQU9CZ05WSFE4QkFmOEVCQU1DQTZnd0hRWURWUjBsQkJZd0ZBWUlLd1lCQlFVSEF3RUdDQ3NHCkFRVUZCd01DTUF3R0ExVWRFd0VCL3dRQ01BQXdIUVlEVlIwT0JCWUVGSzA3YUdMbHd4cDQzOWxuSUVHYmVGaUEKZlI1R01COEdBMVVkSXdRWU1CYUFGSUlvdDZsdkFnalhrUERmUDZmTXlhYWZrU05MTUJVR0ExVWRFUVFPTUF5QwpDbkJsWlhJeUxXOXlaekl3WHdZSUtnTUVCUVlIQ0FFRVUzc2lZWFIwY25NaU9uc2lhR1l1UVdabWFXeHBZWFJwCmIyNGlPaUp2Y21jeElpd2lhR1l1Ulc1eWIyeHNiV1Z1ZEVsRUlqb2ljR1ZsY2pJdGIzSm5NaUlzSW1obUxsUjUKY0dVaU9pSndaV1Z5SW4xOU1Bb0dDQ3FHU000OUJBTUNBMGNBTUVRQ0lFalNPdk5pUzhPQmlCYnZWcEc4L2RZKwpCOHVCMGEzSFBTYlpGVGdYOUh2dEFpQWF1VHZVRFlLM1UvdGdSOTF2czQ0QUkrQ2diRmFBYUV3dlAzZEtERGJxCktRPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo= ServerInfo:map[CAName:ica-org2 CAChain:LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNMakNDQWRTZ0F3SUJBZ0lVVU9jSHQ4Uk9HZG9SSGRCcFZ6MldSNFNyZkVzd0NnWUlLb1pJemowRUF3SXcKWURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJFd0R3WURWUVFERXdoeVkyRXRiM0puCk1qQWVGdzB4T0RBM01qUXdOak01TURCYUZ3MHlNekEzTWpNd05qUTBNREJhTUdZeEN6QUpCZ05WQkFZVEFsVlQKTVJjd0ZRWURWUVFJRXc1T2IzSjBhQ0JEWVhKdmJHbHVZVEVVTUJJR0ExVUVDaE1MU0hsd1pYSnNaV1JuWlhJeApEekFOQmdOVkJBc1RCbU5zYVdWdWRERVhNQlVHQTFVRUF4TU9jbU5oTFc5eVp6SXRZV1J0YVc0d1dUQVRCZ2NxCmhrak9QUUlCQmdncWhrak9QUU1CQndOQ0FBUlh5OW1IaktIR2NyaE80eHZHKzNHWmZxdXV2d0NwSUhYVWY5QXcKV0YwL29wRi9mVWRUTWZxZXFpeFd2OXhFTExvS2ZDRkZEbytaVmNWc2FuRW10WWZ5bzJZd1pEQU9CZ05WSFE4QgpBZjhFQkFNQ0FRWXdFZ1lEVlIwVEFRSC9CQWd3QmdFQi93SUJBREFkQmdOVkhRNEVGZ1FVZ2lpM3FXOENDTmVRCjhOOC9wOHpKcHArUkkwc3dId1lEVlIwakJCZ3dGb0FVZ3UyNkVCUUVDdTIzVmtjQS84dG5sQ1BmeXZFd0NnWUkKS29aSXpqMEVBd0lEU0FBd1JRSWhBTTdCVzdIS2VtTkpKWEVQV0YzNGp3amFwM056WnRyNVRBLzBYT2N5dy96VgpBaUF2T0VTUW5WNUFUWDVjcVdPV20rRkNJR2lMWWViTzFkQXFoUy9yaExVaVBBPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQotLS0tLUJFR0lOIENFUlRJRklDQVRFLS0tLS0KTUlJQ0JqQ0NBYTJnQXdJQkFnSVVSVEw3bTJXbTBKMFQ0NmdEOGdzUDhGTEw0WjR3Q2dZSUtvWkl6ajBFQXdJdwpZREVMTUFrR0ExVUVCaE1DVlZNeEZ6QVZCZ05WQkFnVERrNXZjblJvSUVOaGNtOXNhVzVoTVJRd0VnWURWUVFLCkV3dEllWEJsY214bFpHZGxjakVQTUEwR0ExVUVDeE1HUm1GaWNtbGpNUkV3RHdZRFZRUURFd2h5WTJFdGIzSm4KTWpBZUZ3MHhPREEzTWpRd05qTTVNREJhRncwek16QTNNakF3TmpNNU1EQmFNR0F4Q3pBSkJnTlZCQVlUQWxWVApNUmN3RlFZRFZRUUlFdzVPYjNKMGFDQkRZWEp2YkdsdVlURVVNQklHQTFVRUNoTUxTSGx3WlhKc1pXUm5aWEl4CkR6QU5CZ05WQkFzVEJrWmhZbkpwWXpFUk1BOEdBMVVFQXhNSWNtTmhMVzl5WnpJd1dUQVRCZ2NxaGtqT1BRSUIKQmdncWhrak9QUU1CQndOQ0FBUTQrekhWenhLMGR2T1RBWVpRRUs5ZzFETldnQUZhSnRjdVMrMDhUbStVeXNZVQpVM01laDc2N0p4Z3lKWlpVRFNNUWJlTXRDYy9tdFVQaHhuUnNta1M5bzBVd1F6QU9CZ05WSFE4QkFmOEVCQU1DCkFRWXdFZ1lEVlIwVEFRSC9CQWd3QmdFQi93SUJBVEFkQmdOVkhRNEVGZ1FVZ3UyNkVCUUVDdTIzVmtjQS84dG4KbENQZnl2RXdDZ1lJS29aSXpqMEVBd0lEUndBd1JBSWdCS3VWUHpIRzBKaVFwdC9TRlJSM2dudVF2WjFjMDJRNQpHS20xTkI2ck5LQUNJRm85NTUrUExzR0lkcjBIWjQweHdrRnRTUXZwSEc1c2Y2SzJGK2ZjelFoNQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg== Version:]]
+2018/07/24 06:43:45 [DEBUG] newEnrollmentResponse peer2-org2
+2018/07/24 06:43:45 [INFO] Stored client certificate at /tmp/tls/signcerts/cert.pem
+2018/07/24 06:43:45 [INFO] Stored TLS root CA certificate at /tmp/tls/tlscacerts/tls-ica-org2-7054.pem
+2018/07/24 06:43:45 [INFO] Stored TLS intermediate certificates at /tmp/tls/tlsintermediatecerts/tls-ica-org2-7054.pem
+2018/07/24 06:43:45 [DEBUG] Home directory: /opt/gopath/src/github.com/hyperledger/fabric/peer
+2018/07/24 06:43:45 [DEBUG] Client configuration settings: &{URL:https://peer2-org2:peer2-org2pw@ica-org2:7054 MSPDir:/tmp/tls TLS:{Enabled:true CertFiles:[/data/org2-ca-chain.pem] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile:tls Label: CSR:<nil> CAName: AttrReqs:[]  } CSR:{CN:peer2-org2 Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[peer2-org2] KeyRequest:<nil> CA:<nil> SerialNumber:} ID:{Name: Type:client Secret: MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:} Revoke:{Name: Serial: AKI: Reason: CAName: GenCRL:false} CAInfo:{CAName:} CAName: CSP:0xc42019ea80}
+2018/07/24 06:43:45 [DEBUG] Entered runEnroll
+2018/07/24 06:43:45 [DEBUG] Enrolling { Name:peer2-org2 Secret:**** Profile:tls Label: CSR:&{peer2-org2 [{US North Carolina  Hyperledger Fabric }] [peer2-org2] <nil> <nil> } CAName: AttrReqs:[]  }
+2018/07/24 06:43:45 [DEBUG] Initializing client with config: &{URL:https://ica-org2:7054 MSPDir:/tmp/tls TLS:{Enabled:true CertFiles:[/data/org2-ca-chain.pem] Client:{KeyFile: CertFile:}} Enrollment:{ Name:peer2-org2 Secret:**** Profile:tls Label: CSR:&{peer2-org2 [{US North Carolina  Hyperledger Fabric }] [peer2-org2] <nil> <nil> } CAName: AttrReqs:[]  } CSR:{CN:peer2-org2 Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[peer2-org2] KeyRequest:<nil> CA:<nil> SerialNumber:} ID:{Name: Type:client Secret: MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:} Revoke:{Name: Serial: AKI: Reason: CAName: GenCRL:false} CAInfo:{CAName:} CAName: CSP:0xc42019ea80}
+2018/07/24 06:43:45 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc42019eae0 PluginOpts:<nil> Pkcs11Opts:<nil>}
+2018/07/24 06:43:45 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc4201ab9a0 DummyKeystore:<nil>}
+2018/07/24 06:43:45 [INFO] TLS Enabled
+2018/07/24 06:43:45 [DEBUG] CA Files: [/data/org2-ca-chain.pem]
+2018/07/24 06:43:45 [DEBUG] Client Cert File: 
+2018/07/24 06:43:45 [DEBUG] Client Key File: 
+2018/07/24 06:43:45 [DEBUG] Client TLS certificate and/or key file not provided
+2018/07/24 06:43:45 [DEBUG] GenCSR &{CN:peer2-org2 Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[peer2-org2] KeyRequest:<nil> CA:<nil> SerialNumber:}
+2018/07/24 06:43:45 [INFO] generating key: &{A:ecdsa S:256}
+2018/07/24 06:43:45 [DEBUG] generate key from request: algo=ecdsa, size=256
+2018/07/24 06:43:45 [INFO] encoded CSR
+2018/07/24 06:43:45 [DEBUG] Sending request
+POST https://ica-org2:7054/enroll
+{"hosts":["peer2-org2"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBRDCB7AIBADBiMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxEzARBgNV\nBAMTCnBlZXIyLW9yZzIwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAR+UfhzaTSI\nJYbtbkVNJ0CNnpxB/P1ktBslxsVhdS0i9dRpd9y57AAvyCor0NrskvwJbrkB96s3\npTsy2UwctRLVoCgwJgYJKoZIhvcNAQkOMRkwFzAVBgNVHREEDjAMggpwZWVyMi1v\ncmcyMAoGCCqGSM49BAMCA0cAMEQCICF7Q5nF75eufl0yMugr02qLI3lx17lOaLum\nas06PVQWAiACylVtcEuR8bB4R0tRboFLoXZyBo0ef/+4zLKoFfYXjQ==\n-----END CERTIFICATE REQUEST-----\n","profile":"tls","crl_override":"","label":"","NotBefore":"0001-01-01T00:00:00Z","NotAfter":"0001-01-01T00:00:00Z","CAName":""}
+2018/07/24 06:43:45 [DEBUG] Received response
+statusCode=201 (201 Created)
+2018/07/24 06:43:45 [DEBUG] Response body result: map[Cert:LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN6akNDQW5TZ0F3SUJBZ0lVVEk5b0paajJ5SE9DVkFPS0F3T3RuZkdkNWZjd0NnWUlLb1pJemowRUF3SXcKWmpFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1kyeHBaVzUwTVJjd0ZRWURWUVFERXc1eVkyRXRiM0puCk1pMWhaRzFwYmpBZUZ3MHhPREEzTWpRd05qTTVNREJhRncweE9UQTNNalF3TmpRME1EQmFNRzB4Q3pBSkJnTlYKQkFZVEFsVlRNUmN3RlFZRFZRUUlFdzVPYjNKMGFDQkRZWEp2YkdsdVlURVVNQklHQTFVRUNoTUxTSGx3WlhKcwpaV1JuWlhJeEdqQUxCZ05WQkFzVEJIQmxaWEl3Q3dZRFZRUUxFd1J2Y21jeE1STXdFUVlEVlFRREV3cHdaV1Z5Ck1pMXZjbWN5TUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJemowREFRY0RRZ0FFZmxINGMyazBpQ1dHN1c1RlRTZEEKalo2Y1FmejlaTFFiSmNiRllYVXRJdlhVYVhmY3Vld0FMOGdxSzlEYTdKTDhDVzY1QWZlck42VTdNdGxNSExVUwoxYU9CK0RDQjlUQU9CZ05WSFE4QkFmOEVCQU1DQTZnd0hRWURWUjBsQkJZd0ZBWUlLd1lCQlFVSEF3RUdDQ3NHCkFRVUZCd01DTUF3R0ExVWRFd0VCL3dRQ01BQXdIUVlEVlIwT0JCWUVGTkQwZDc4VzFRdUdSbWU2RTBaSzJkUUQKVWowSk1COEdBMVVkSXdRWU1CYUFGSUlvdDZsdkFnalhrUERmUDZmTXlhYWZrU05MTUJVR0ExVWRFUVFPTUF5QwpDbkJsWlhJeUxXOXlaekl3WHdZSUtnTUVCUVlIQ0FFRVUzc2lZWFIwY25NaU9uc2lhR1l1UVdabWFXeHBZWFJwCmIyNGlPaUp2Y21jeElpd2lhR1l1Ulc1eWIyeHNiV1Z1ZEVsRUlqb2ljR1ZsY2pJdGIzSm5NaUlzSW1obUxsUjUKY0dVaU9pSndaV1Z5SW4xOU1Bb0dDQ3FHU000OUJBTUNBMGdBTUVVQ0lRRGxZa1dNYXhudVh4MmlGd3c2dzR1aQppUjR5UjFrbmNlb2ZTcTNVeFFZeE1nSWdUT1o3OTJkODBlbnRrc1dCdHpqcmI0OUd1TVNia2NIb0IzQWJnTFRICm8zUT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo= ServerInfo:map[CAName:ica-org2 CAChain:LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNMakNDQWRTZ0F3SUJBZ0lVVU9jSHQ4Uk9HZG9SSGRCcFZ6MldSNFNyZkVzd0NnWUlLb1pJemowRUF3SXcKWURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJFd0R3WURWUVFERXdoeVkyRXRiM0puCk1qQWVGdzB4T0RBM01qUXdOak01TURCYUZ3MHlNekEzTWpNd05qUTBNREJhTUdZeEN6QUpCZ05WQkFZVEFsVlQKTVJjd0ZRWURWUVFJRXc1T2IzSjBhQ0JEWVhKdmJHbHVZVEVVTUJJR0ExVUVDaE1MU0hsd1pYSnNaV1JuWlhJeApEekFOQmdOVkJBc1RCbU5zYVdWdWRERVhNQlVHQTFVRUF4TU9jbU5oTFc5eVp6SXRZV1J0YVc0d1dUQVRCZ2NxCmhrak9QUUlCQmdncWhrak9QUU1CQndOQ0FBUlh5OW1IaktIR2NyaE80eHZHKzNHWmZxdXV2d0NwSUhYVWY5QXcKV0YwL29wRi9mVWRUTWZxZXFpeFd2OXhFTExvS2ZDRkZEbytaVmNWc2FuRW10WWZ5bzJZd1pEQU9CZ05WSFE4QgpBZjhFQkFNQ0FRWXdFZ1lEVlIwVEFRSC9CQWd3QmdFQi93SUJBREFkQmdOVkhRNEVGZ1FVZ2lpM3FXOENDTmVRCjhOOC9wOHpKcHArUkkwc3dId1lEVlIwakJCZ3dGb0FVZ3UyNkVCUUVDdTIzVmtjQS84dG5sQ1BmeXZFd0NnWUkKS29aSXpqMEVBd0lEU0FBd1JRSWhBTTdCVzdIS2VtTkpKWEVQV0YzNGp3amFwM056WnRyNVRBLzBYT2N5dy96VgpBaUF2T0VTUW5WNUFUWDVjcVdPV20rRkNJR2lMWWViTzFkQXFoUy9yaExVaVBBPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQotLS0tLUJFR0lOIENFUlRJRklDQVRFLS0tLS0KTUlJQ0JqQ0NBYTJnQXdJQkFnSVVSVEw3bTJXbTBKMFQ0NmdEOGdzUDhGTEw0WjR3Q2dZSUtvWkl6ajBFQXdJdwpZREVMTUFrR0ExVUVCaE1DVlZNeEZ6QVZCZ05WQkFnVERrNXZjblJvSUVOaGNtOXNhVzVoTVJRd0VnWURWUVFLCkV3dEllWEJsY214bFpHZGxjakVQTUEwR0ExVUVDeE1HUm1GaWNtbGpNUkV3RHdZRFZRUURFd2h5WTJFdGIzSm4KTWpBZUZ3MHhPREEzTWpRd05qTTVNREJhRncwek16QTNNakF3TmpNNU1EQmFNR0F4Q3pBSkJnTlZCQVlUQWxWVApNUmN3RlFZRFZRUUlFdzVPYjNKMGFDQkRZWEp2YkdsdVlURVVNQklHQTFVRUNoTUxTSGx3WlhKc1pXUm5aWEl4CkR6QU5CZ05WQkFzVEJrWmhZbkpwWXpFUk1BOEdBMVVFQXhNSWNtTmhMVzl5WnpJd1dUQVRCZ2NxaGtqT1BRSUIKQmdncWhrak9QUU1CQndOQ0FBUTQrekhWenhLMGR2T1RBWVpRRUs5ZzFETldnQUZhSnRjdVMrMDhUbStVeXNZVQpVM01laDc2N0p4Z3lKWlpVRFNNUWJlTXRDYy9tdFVQaHhuUnNta1M5bzBVd1F6QU9CZ05WSFE4QkFmOEVCQU1DCkFRWXdFZ1lEVlIwVEFRSC9CQWd3QmdFQi93SUJBVEFkQmdOVkhRNEVGZ1FVZ3UyNkVCUUVDdTIzVmtjQS84dG4KbENQZnl2RXdDZ1lJS29aSXpqMEVBd0lEUndBd1JBSWdCS3VWUHpIRzBKaVFwdC9TRlJSM2dudVF2WjFjMDJRNQpHS20xTkI2ck5LQUNJRm85NTUrUExzR0lkcjBIWjQweHdrRnRTUXZwSEc1c2Y2SzJGK2ZjelFoNQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg== Version:]]
+2018/07/24 06:43:45 [DEBUG] newEnrollmentResponse peer2-org2
+2018/07/24 06:43:45 [INFO] Stored client certificate at /tmp/tls/signcerts/cert.pem
+2018/07/24 06:43:45 [INFO] Stored TLS root CA certificate at /tmp/tls/tlscacerts/tls-ica-org2-7054.pem
+2018/07/24 06:43:45 [INFO] Stored TLS intermediate certificates at /tmp/tls/tlsintermediatecerts/tls-ica-org2-7054.pem
+mkdir: cannot create directory '/data/tls': File exists
+2018/07/24 06:43:45 [DEBUG] Home directory: /opt/gopath/src/github.com/hyperledger/fabric/peer
+2018/07/24 06:43:45 [DEBUG] Client configuration settings: &{URL:https://peer2-org2:peer2-org2pw@ica-org2:7054 MSPDir:/tmp/tls TLS:{Enabled:true CertFiles:[/data/org2-ca-chain.pem] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile:tls Label: CSR:<nil> CAName: AttrReqs:[]  } CSR:{CN:peer2-org2 Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[peer2-org2] KeyRequest:<nil> CA:<nil> SerialNumber:} ID:{Name: Type:client Secret: MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:} Revoke:{Name: Serial: AKI: Reason: CAName: GenCRL:false} CAInfo:{CAName:} CAName: CSP:0xc42019aae0}
+2018/07/24 06:43:45 [DEBUG] Entered runEnroll
+2018/07/24 06:43:45 [DEBUG] Enrolling { Name:peer2-org2 Secret:**** Profile:tls Label: CSR:&{peer2-org2 [{US North Carolina  Hyperledger Fabric }] [peer2-org2] <nil> <nil> } CAName: AttrReqs:[]  }
+2018/07/24 06:43:45 [DEBUG] Initializing client with config: &{URL:https://ica-org2:7054 MSPDir:/tmp/tls TLS:{Enabled:true CertFiles:[/data/org2-ca-chain.pem] Client:{KeyFile: CertFile:}} Enrollment:{ Name:peer2-org2 Secret:**** Profile:tls Label: CSR:&{peer2-org2 [{US North Carolina  Hyperledger Fabric }] [peer2-org2] <nil> <nil> } CAName: AttrReqs:[]  } CSR:{CN:peer2-org2 Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[peer2-org2] KeyRequest:<nil> CA:<nil> SerialNumber:} ID:{Name: Type:client Secret: MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:} Revoke:{Name: Serial: AKI: Reason: CAName: GenCRL:false} CAInfo:{CAName:} CAName: CSP:0xc42019aae0}
+2018/07/24 06:43:45 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc42019ab40 PluginOpts:<nil> Pkcs11Opts:<nil>}
+2018/07/24 06:43:45 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc4201ae080 DummyKeystore:<nil>}
+2018/07/24 06:43:45 [INFO] TLS Enabled
+2018/07/24 06:43:45 [DEBUG] CA Files: [/data/org2-ca-chain.pem]
+2018/07/24 06:43:45 [DEBUG] Client Cert File: 
+2018/07/24 06:43:45 [DEBUG] Client Key File: 
+2018/07/24 06:43:45 [DEBUG] Client TLS certificate and/or key file not provided
+2018/07/24 06:43:45 [DEBUG] GenCSR &{CN:peer2-org2 Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[peer2-org2] KeyRequest:<nil> CA:<nil> SerialNumber:}
+2018/07/24 06:43:45 [INFO] generating key: &{A:ecdsa S:256}
+2018/07/24 06:43:45 [DEBUG] generate key from request: algo=ecdsa, size=256
+2018/07/24 06:43:45 [INFO] encoded CSR
+2018/07/24 06:43:45 [DEBUG] Sending request
+POST https://ica-org2:7054/enroll
+{"hosts":["peer2-org2"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBRDCB7AIBADBiMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxEzARBgNV\nBAMTCnBlZXIyLW9yZzIwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS24cPBDqFq\nWBrYmi6QQ8Ze4uF12pzOr0GBk1q64L/1UJYeBPtxgBwQA2LxZO1aIn9gUmomh+g0\n0F6t0LjFuYa2oCgwJgYJKoZIhvcNAQkOMRkwFzAVBgNVHREEDjAMggpwZWVyMi1v\ncmcyMAoGCCqGSM49BAMCA0cAMEQCIGgqVL7sLElVGpiSt4TuvtFE83NCKxhdObus\nRG2k+gRIAiBhkUtMEog2SQj3m1KTS1uW9+WY1D62kuV+NQqZMWmf3g==\n-----END CERTIFICATE REQUEST-----\n","profile":"tls","crl_override":"","label":"","NotBefore":"0001-01-01T00:00:00Z","NotAfter":"0001-01-01T00:00:00Z","CAName":""}
+2018/07/24 06:43:45 [DEBUG] Received response
+statusCode=201 (201 Created)
+2018/07/24 06:43:45 [DEBUG] Response body result: map[ServerInfo:map[CAName:ica-org2 CAChain:LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNMakNDQWRTZ0F3SUJBZ0lVVU9jSHQ4Uk9HZG9SSGRCcFZ6MldSNFNyZkVzd0NnWUlLb1pJemowRUF3SXcKWURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJFd0R3WURWUVFERXdoeVkyRXRiM0puCk1qQWVGdzB4T0RBM01qUXdOak01TURCYUZ3MHlNekEzTWpNd05qUTBNREJhTUdZeEN6QUpCZ05WQkFZVEFsVlQKTVJjd0ZRWURWUVFJRXc1T2IzSjBhQ0JEWVhKdmJHbHVZVEVVTUJJR0ExVUVDaE1MU0hsd1pYSnNaV1JuWlhJeApEekFOQmdOVkJBc1RCbU5zYVdWdWRERVhNQlVHQTFVRUF4TU9jbU5oTFc5eVp6SXRZV1J0YVc0d1dUQVRCZ2NxCmhrak9QUUlCQmdncWhrak9QUU1CQndOQ0FBUlh5OW1IaktIR2NyaE80eHZHKzNHWmZxdXV2d0NwSUhYVWY5QXcKV0YwL29wRi9mVWRUTWZxZXFpeFd2OXhFTExvS2ZDRkZEbytaVmNWc2FuRW10WWZ5bzJZd1pEQU9CZ05WSFE4QgpBZjhFQkFNQ0FRWXdFZ1lEVlIwVEFRSC9CQWd3QmdFQi93SUJBREFkQmdOVkhRNEVGZ1FVZ2lpM3FXOENDTmVRCjhOOC9wOHpKcHArUkkwc3dId1lEVlIwakJCZ3dGb0FVZ3UyNkVCUUVDdTIzVmtjQS84dG5sQ1BmeXZFd0NnWUkKS29aSXpqMEVBd0lEU0FBd1JRSWhBTTdCVzdIS2VtTkpKWEVQV0YzNGp3amFwM056WnRyNVRBLzBYT2N5dy96VgpBaUF2T0VTUW5WNUFUWDVjcVdPV20rRkNJR2lMWWViTzFkQXFoUy9yaExVaVBBPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQotLS0tLUJFR0lOIENFUlRJRklDQVRFLS0tLS0KTUlJQ0JqQ0NBYTJnQXdJQkFnSVVSVEw3bTJXbTBKMFQ0NmdEOGdzUDhGTEw0WjR3Q2dZSUtvWkl6ajBFQXdJdwpZREVMTUFrR0ExVUVCaE1DVlZNeEZ6QVZCZ05WQkFnVERrNXZjblJvSUVOaGNtOXNhVzVoTVJRd0VnWURWUVFLCkV3dEllWEJsY214bFpHZGxjakVQTUEwR0ExVUVDeE1HUm1GaWNtbGpNUkV3RHdZRFZRUURFd2h5WTJFdGIzSm4KTWpBZUZ3MHhPREEzTWpRd05qTTVNREJhRncwek16QTNNakF3TmpNNU1EQmFNR0F4Q3pBSkJnTlZCQVlUQWxWVApNUmN3RlFZRFZRUUlFdzVPYjNKMGFDQkRZWEp2YkdsdVlURVVNQklHQTFVRUNoTUxTSGx3WlhKc1pXUm5aWEl4CkR6QU5CZ05WQkFzVEJrWmhZbkpwWXpFUk1BOEdBMVVFQXhNSWNtTmhMVzl5WnpJd1dUQVRCZ2NxaGtqT1BRSUIKQmdncWhrak9QUU1CQndOQ0FBUTQrekhWenhLMGR2T1RBWVpRRUs5ZzFETldnQUZhSnRjdVMrMDhUbStVeXNZVQpVM01laDc2N0p4Z3lKWlpVRFNNUWJlTXRDYy9tdFVQaHhuUnNta1M5bzBVd1F6QU9CZ05WSFE4QkFmOEVCQU1DCkFRWXdFZ1lEVlIwVEFRSC9CQWd3QmdFQi93SUJBVEFkQmdOVkhRNEVGZ1FVZ3UyNkVCUUVDdTIzVmtjQS84dG4KbENQZnl2RXdDZ1lJS29aSXpqMEVBd0lEUndBd1JBSWdCS3VWUHpIRzBKaVFwdC9TRlJSM2dudVF2WjFjMDJRNQpHS20xTkI2ck5LQUNJRm85NTUrUExzR0lkcjBIWjQweHdrRnRTUXZwSEc1c2Y2SzJGK2ZjelFoNQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg== Version:] Cert:LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN6akNDQW5TZ0F3SUJBZ0lVY3FpS3hWZ0FQbjhJcW80UUFEY3lLOXNKcDJBd0NnWUlLb1pJemowRUF3SXcKWmpFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1kyeHBaVzUwTVJjd0ZRWURWUVFERXc1eVkyRXRiM0puCk1pMWhaRzFwYmpBZUZ3MHhPREEzTWpRd05qTTVNREJhRncweE9UQTNNalF3TmpRME1EQmFNRzB4Q3pBSkJnTlYKQkFZVEFsVlRNUmN3RlFZRFZRUUlFdzVPYjNKMGFDQkRZWEp2YkdsdVlURVVNQklHQTFVRUNoTUxTSGx3WlhKcwpaV1JuWlhJeEdqQUxCZ05WQkFzVEJIQmxaWEl3Q3dZRFZRUUxFd1J2Y21jeE1STXdFUVlEVlFRREV3cHdaV1Z5Ck1pMXZjbWN5TUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJemowREFRY0RRZ0FFdHVIRHdRNmhhbGdhMkpvdWtFUEcKWHVMaGRkcWN6cTlCZ1pOYXV1Qy85VkNXSGdUN2NZQWNFQU5pOFdUdFdpSi9ZRkpxSm9mb05OQmVyZEM0eGJtRwp0cU9CK0RDQjlUQU9CZ05WSFE4QkFmOEVCQU1DQTZnd0hRWURWUjBsQkJZd0ZBWUlLd1lCQlFVSEF3RUdDQ3NHCkFRVUZCd01DTUF3R0ExVWRFd0VCL3dRQ01BQXdIUVlEVlIwT0JCWUVGTXVDellkS08zOTJrNmUyNnpYSTVLcnkKVUs0TU1COEdBMVVkSXdRWU1CYUFGSUlvdDZsdkFnalhrUERmUDZmTXlhYWZrU05MTUJVR0ExVWRFUVFPTUF5QwpDbkJsWlhJeUxXOXlaekl3WHdZSUtnTUVCUVlIQ0FFRVUzc2lZWFIwY25NaU9uc2lhR1l1UVdabWFXeHBZWFJwCmIyNGlPaUp2Y21jeElpd2lhR1l1Ulc1eWIyeHNiV1Z1ZEVsRUlqb2ljR1ZsY2pJdGIzSm5NaUlzSW1obUxsUjUKY0dVaU9pSndaV1Z5SW4xOU1Bb0dDQ3FHU000OUJBTUNBMGdBTUVVQ0lRQ0o4Um0yU1hyT2Qxa05vM3paNWFWcQpxVkZYcVVhTmtiditmWnp4K3FiMGF3SWdXL0JjT0UwMzlnRjlJdVZvU3NIOXhpdE1XRjZoWUgvRFdVL0VOYkFYCnRUYz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=]
+2018/07/24 06:43:45 [DEBUG] newEnrollmentResponse peer2-org2
+2018/07/24 06:43:45 [INFO] Stored client certificate at /tmp/tls/signcerts/cert.pem
+2018/07/24 06:43:45 [INFO] Stored TLS root CA certificate at /tmp/tls/tlscacerts/tls-ica-org2-7054.pem
+2018/07/24 06:43:45 [INFO] Stored TLS intermediate certificates at /tmp/tls/tlsintermediatecerts/tls-ica-org2-7054.pem
+mkdir: cannot create directory '/data/tls': File exists
+2018/07/24 06:43:45 [DEBUG] Home directory: /opt/gopath/src/github.com/hyperledger/fabric/peer
+2018/07/24 06:43:45 [DEBUG] Client configuration settings: &{URL:https://peer2-org2:peer2-org2pw@ica-org2:7054 MSPDir:/opt/gopath/src/github.com/hyperledger/fabric/peer/msp TLS:{Enabled:true CertFiles:[/data/org2-ca-chain.pem] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  } CSR:{CN:peer2-org2 Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[d43cde312b30] KeyRequest:<nil> CA:<nil> SerialNumber:} ID:{Name: Type:client Secret: MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:} Revoke:{Name: Serial: AKI: Reason: CAName: GenCRL:false} CAInfo:{CAName:} CAName: CSP:0xc4201a4bd0}
+2018/07/24 06:43:45 [DEBUG] Entered runEnroll
+2018/07/24 06:43:45 [DEBUG] Enrolling { Name:peer2-org2 Secret:**** Profile: Label: CSR:&{peer2-org2 [{US North Carolina  Hyperledger Fabric }] [d43cde312b30] <nil> <nil> } CAName: AttrReqs:[]  }
+2018/07/24 06:43:45 [DEBUG] Initializing client with config: &{URL:https://ica-org2:7054 MSPDir:/opt/gopath/src/github.com/hyperledger/fabric/peer/msp TLS:{Enabled:true CertFiles:[/data/org2-ca-chain.pem] Client:{KeyFile: CertFile:}} Enrollment:{ Name:peer2-org2 Secret:**** Profile: Label: CSR:&{peer2-org2 [{US North Carolina  Hyperledger Fabric }] [d43cde312b30] <nil> <nil> } CAName: AttrReqs:[]  } CSR:{CN:peer2-org2 Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[d43cde312b30] KeyRequest:<nil> CA:<nil> SerialNumber:} ID:{Name: Type:client Secret: MaxEnrollments:0 Affiliation:org1 Attributes:[] CAName:} Revoke:{Name: Serial: AKI: Reason: CAName: GenCRL:false} CAInfo:{CAName:} CAName: CSP:0xc4201a4bd0}
+2018/07/24 06:43:45 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc4201a4c30 PluginOpts:<nil> Pkcs11Opts:<nil>}
+2018/07/24 06:43:45 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc4201b2c00 DummyKeystore:<nil>}
+2018/07/24 06:43:45 [INFO] TLS Enabled
+2018/07/24 06:43:45 [DEBUG] CA Files: [/data/org2-ca-chain.pem]
+2018/07/24 06:43:45 [DEBUG] Client Cert File: 
+2018/07/24 06:43:45 [DEBUG] Client Key File: 
+2018/07/24 06:43:45 [DEBUG] Client TLS certificate and/or key file not provided
+2018/07/24 06:43:45 [DEBUG] GenCSR &{CN:peer2-org2 Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[d43cde312b30] KeyRequest:<nil> CA:<nil> SerialNumber:}
+2018/07/24 06:43:45 [INFO] generating key: &{A:ecdsa S:256}
+2018/07/24 06:43:45 [DEBUG] generate key from request: algo=ecdsa, size=256
+2018/07/24 06:43:45 [INFO] encoded CSR
+2018/07/24 06:43:45 [DEBUG] Sending request
+POST https://ica-org2:7054/enroll
+{"hosts":["d43cde312b30"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBRjCB7gIBADBiMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxEzARBgNV\nBAMTCnBlZXIyLW9yZzIwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQDTjZhXeFJ\nIrjDIYa+eIZgkRuVnKKZavcpjm20ZHtmqrbHzZujpskRT6B+Mb/905GuzwWSOQFO\n0RMpF+YN7U03oCowKAYJKoZIhvcNAQkOMRswGTAXBgNVHREEEDAOggxkNDNjZGUz\nMTJiMzAwCgYIKoZIzj0EAwIDRwAwRAIgXA0uYZIdAASoC7JWIbVUYBueBh+1POEN\nVxRWOpfhW3QCIHfg7Y/xQLvHzmKhL8QQUT/6uWakcKg2oAItJti+LFWv\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","NotBefore":"0001-01-01T00:00:00Z","NotAfter":"0001-01-01T00:00:00Z","CAName":""}
+2018/07/24 06:43:45 [DEBUG] Received response
+statusCode=201 (201 Created)
+2018/07/24 06:43:45 [DEBUG] Response body result: map[ServerInfo:map[Version: CAName:ica-org2 CAChain:LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNMakNDQWRTZ0F3SUJBZ0lVVU9jSHQ4Uk9HZG9SSGRCcFZ6MldSNFNyZkVzd0NnWUlLb1pJemowRUF3SXcKWURFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1JtRmljbWxqTVJFd0R3WURWUVFERXdoeVkyRXRiM0puCk1qQWVGdzB4T0RBM01qUXdOak01TURCYUZ3MHlNekEzTWpNd05qUTBNREJhTUdZeEN6QUpCZ05WQkFZVEFsVlQKTVJjd0ZRWURWUVFJRXc1T2IzSjBhQ0JEWVhKdmJHbHVZVEVVTUJJR0ExVUVDaE1MU0hsd1pYSnNaV1JuWlhJeApEekFOQmdOVkJBc1RCbU5zYVdWdWRERVhNQlVHQTFVRUF4TU9jbU5oTFc5eVp6SXRZV1J0YVc0d1dUQVRCZ2NxCmhrak9QUUlCQmdncWhrak9QUU1CQndOQ0FBUlh5OW1IaktIR2NyaE80eHZHKzNHWmZxdXV2d0NwSUhYVWY5QXcKV0YwL29wRi9mVWRUTWZxZXFpeFd2OXhFTExvS2ZDRkZEbytaVmNWc2FuRW10WWZ5bzJZd1pEQU9CZ05WSFE4QgpBZjhFQkFNQ0FRWXdFZ1lEVlIwVEFRSC9CQWd3QmdFQi93SUJBREFkQmdOVkhRNEVGZ1FVZ2lpM3FXOENDTmVRCjhOOC9wOHpKcHArUkkwc3dId1lEVlIwakJCZ3dGb0FVZ3UyNkVCUUVDdTIzVmtjQS84dG5sQ1BmeXZFd0NnWUkKS29aSXpqMEVBd0lEU0FBd1JRSWhBTTdCVzdIS2VtTkpKWEVQV0YzNGp3amFwM056WnRyNVRBLzBYT2N5dy96VgpBaUF2T0VTUW5WNUFUWDVjcVdPV20rRkNJR2lMWWViTzFkQXFoUy9yaExVaVBBPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQotLS0tLUJFR0lOIENFUlRJRklDQVRFLS0tLS0KTUlJQ0JqQ0NBYTJnQXdJQkFnSVVSVEw3bTJXbTBKMFQ0NmdEOGdzUDhGTEw0WjR3Q2dZSUtvWkl6ajBFQXdJdwpZREVMTUFrR0ExVUVCaE1DVlZNeEZ6QVZCZ05WQkFnVERrNXZjblJvSUVOaGNtOXNhVzVoTVJRd0VnWURWUVFLCkV3dEllWEJsY214bFpHZGxjakVQTUEwR0ExVUVDeE1HUm1GaWNtbGpNUkV3RHdZRFZRUURFd2h5WTJFdGIzSm4KTWpBZUZ3MHhPREEzTWpRd05qTTVNREJhRncwek16QTNNakF3TmpNNU1EQmFNR0F4Q3pBSkJnTlZCQVlUQWxWVApNUmN3RlFZRFZRUUlFdzVPYjNKMGFDQkRZWEp2YkdsdVlURVVNQklHQTFVRUNoTUxTSGx3WlhKc1pXUm5aWEl4CkR6QU5CZ05WQkFzVEJrWmhZbkpwWXpFUk1BOEdBMVVFQXhNSWNtTmhMVzl5WnpJd1dUQVRCZ2NxaGtqT1BRSUIKQmdncWhrak9QUU1CQndOQ0FBUTQrekhWenhLMGR2T1RBWVpRRUs5ZzFETldnQUZhSnRjdVMrMDhUbStVeXNZVQpVM01laDc2N0p4Z3lKWlpVRFNNUWJlTXRDYy9tdFVQaHhuUnNta1M5bzBVd1F6QU9CZ05WSFE4QkFmOEVCQU1DCkFRWXdFZ1lEVlIwVEFRSC9CQWd3QmdFQi93SUJBVEFkQmdOVkhRNEVGZ1FVZ3UyNkVCUUVDdTIzVmtjQS84dG4KbENQZnl2RXdDZ1lJS29aSXpqMEVBd0lEUndBd1JBSWdCS3VWUHpIRzBKaVFwdC9TRlJSM2dudVF2WjFjMDJRNQpHS20xTkI2ck5LQUNJRm85NTUrUExzR0lkcjBIWjQweHdrRnRTUXZwSEc1c2Y2SzJGK2ZjelFoNQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==] Cert:LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNzVENDQWxlZ0F3SUJBZ0lVR3JMekZKS1E0bjFUOUNVRlk3a0JCOEdMVDRVd0NnWUlLb1pJemowRUF3SXcKWmpFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBZ1REazV2Y25Sb0lFTmhjbTlzYVc1aE1SUXdFZ1lEVlFRSwpFd3RJZVhCbGNteGxaR2RsY2pFUE1BMEdBMVVFQ3hNR1kyeHBaVzUwTVJjd0ZRWURWUVFERXc1eVkyRXRiM0puCk1pMWhaRzFwYmpBZUZ3MHhPREEzTWpRd05qTTVNREJhRncweE9UQTNNalF3TmpRME1EQmFNRzB4Q3pBSkJnTlYKQkFZVEFsVlRNUmN3RlFZRFZRUUlFdzVPYjNKMGFDQkRZWEp2YkdsdVlURVVNQklHQTFVRUNoTUxTSGx3WlhKcwpaV1JuWlhJeEdqQUxCZ05WQkFzVEJIQmxaWEl3Q3dZRFZRUUxFd1J2Y21jeE1STXdFUVlEVlFRREV3cHdaV1Z5Ck1pMXZjbWN5TUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJemowREFRY0RRZ0FFQTA0MllWM2hTU0s0d3lHR3ZuaUcKWUpFYmxaeWltV3IzS1k1dHRHUjdacXEyeDgyYm82YkpFVStnZmpHLy9kT1JyczhGa2prQlR0RVRLUmZtRGUxTgpONk9CMnpDQjJEQU9CZ05WSFE4QkFmOEVCQU1DQjRBd0RBWURWUjBUQVFIL0JBSXdBREFkQmdOVkhRNEVGZ1FVCi9jWkhmRUV4bW8vZFlkL1R2TUVlNHBDZDNRUXdId1lEVlIwakJCZ3dGb0FVZ2lpM3FXOENDTmVROE44L3A4ekoKcHArUkkwc3dGd1lEVlIwUkJCQXdEb0lNWkRRelkyUmxNekV5WWpNd01GOEdDQ29EQkFVR0J3Z0JCRk43SW1GMApkSEp6SWpwN0ltaG1Ma0ZtWm1sc2FXRjBhVzl1SWpvaWIzSm5NU0lzSW1obUxrVnVjbTlzYkcxbGJuUkpSQ0k2CkluQmxaWEl5TFc5eVp6SWlMQ0pvWmk1VWVYQmxJam9pY0dWbGNpSjlmVEFLQmdncWhrak9QUVFEQWdOSUFEQkYKQWlFQTRRNkMzU1luT2VPM1I1S0tqNldydW5tTkUyMHU0VHZVSVV3ckZFQ0xsV0lDSUJ0blA3aUt2dTF5a01TMwo0cEFFeVJpNG9DT01MZlVNZ1dsU3dON25TVTJmCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K]
+2018/07/24 06:43:45 [DEBUG] newEnrollmentResponse peer2-org2
+2018/07/24 06:43:45 [INFO] Stored client certificate at /opt/gopath/src/github.com/hyperledger/fabric/peer/msp/signcerts/cert.pem
+2018/07/24 06:43:45 [INFO] Stored root CA certificate at /opt/gopath/src/github.com/hyperledger/fabric/peer/msp/cacerts/ica-org2-7054.pem
+2018/07/24 06:43:45 [INFO] Stored intermediate CA certificates at /opt/gopath/src/github.com/hyperledger/fabric/peer/msp/intermediatecerts/ica-org2-7054.pem
+
+##### 2018-07-24 06:43:45 Starting peer 'peer2-org2' with MSP at '/opt/gopath/src/github.com/hyperledger/fabric/peer/msp'
+CORE_PEER_GOSSIP_SKIPHANDSHAKE=true
+CORE_PEER_TLS_CLIENTCERT_FILE=/data/tls/peer2-org2-client.crt
+CORE_PEER_TLS_ROOTCERT_FILE=/data/org2-ca-chain.pem
+CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/tls/server.key
+CORE_PEER_GOSSIP_ORGLEADER=false
+CORE_PEER_LOCALMSPID=org2MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/tls/server.crt
+CORE_PEER_TLS_CLIENTROOTCAS_FILES=/data/org2-ca-chain.pem
+CORE_PEER_TLS_CLIENTKEY_FILE=/data/tls/peer2-org2-client.key
+CORE_PEER_TLS_ENABLED=true
+CORE_PEER_TLS_CLIENTAUTHREQUIRED=true
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/msp
+CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=net_my-network
+CORE_PEER_ID=peer2-org2
+CORE_LOGGING_LEVEL=DEBUG
+CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer2-org2:7051
+CORE_PEER_ADDRESS=peer2-org2:7051
+CORE_PEER_GOSSIP_USELEADERELECTION=true
+CORE_PEER_GOSSIP_BOOTSTRAP=peer1-org2:7051
+[36m2018-07-24 06:43:45.871 UTC [msp] GetLocalMSP -> DEBU 001[0m Returning existing local MSP
+2018-07-24 06:43:45.871 UTC [nodeCmd] serve -> INFO 002[0m Starting peer:
+ Version: 1.1.0
+ Go version: go1.9.2
+ OS/Arch: linux/amd64
+ Experimental features: false
+ Chaincode:
+  Base Image Version: 0.4.6
+  Base Docker Namespace: hyperledger
+  Base Docker Label: org.hyperledger.fabric
+  Docker Namespace: hyperledger
+
+[36m2018-07-24 06:43:45.871 UTC [msp] GetLocalMSP -> DEBU 003[0m Returning existing local MSP
+2018-07-24 06:43:45.871 UTC [ledgermgmt] initialize -> INFO 004[0m Initializing ledger mgmt
+2018-07-24 06:43:45.871 UTC [kvledger] NewProvider -> INFO 005[0m Initializing ledger provider
+[36m2018-07-24 06:43:45.871 UTC [kvledger.util] CreateDirIfMissing -> DEBU 006[0m CreateDirIfMissing [/var/hyperledger/production/ledgersData/ledgerProvider/]
+[36m2018-07-24 06:43:45.871 UTC [kvledger.util] logDirStatus -> DEBU 007[0m Before creating dir - [/var/hyperledger/production/ledgersData/ledgerProvider/] does not exist
+[36m2018-07-24 06:43:45.872 UTC [kvledger.util] logDirStatus -> DEBU 008[0m After creating dir - [/var/hyperledger/production/ledgersData/ledgerProvider/] exists
+[36m2018-07-24 06:43:45.883 UTC [kvledger.util] CreateDirIfMissing -> DEBU 009[0m CreateDirIfMissing [/var/hyperledger/production/ledgersData/chains/index/]
+[36m2018-07-24 06:43:45.883 UTC [kvledger.util] logDirStatus -> DEBU 00a[0m Before creating dir - [/var/hyperledger/production/ledgersData/chains/index/] does not exist
+[36m2018-07-24 06:43:45.883 UTC [kvledger.util] logDirStatus -> DEBU 00b[0m After creating dir - [/var/hyperledger/production/ledgersData/chains/index/] exists
+[36m2018-07-24 06:43:45.890 UTC [kvledger.util] CreateDirIfMissing -> DEBU 00c[0m CreateDirIfMissing [/var/hyperledger/production/ledgersData/pvtdataStore/]
+[36m2018-07-24 06:43:45.890 UTC [kvledger.util] logDirStatus -> DEBU 00d[0m Before creating dir - [/var/hyperledger/production/ledgersData/pvtdataStore/] does not exist
+[36m2018-07-24 06:43:45.890 UTC [kvledger.util] logDirStatus -> DEBU 00e[0m After creating dir - [/var/hyperledger/production/ledgersData/pvtdataStore/] exists
+[36m2018-07-24 06:43:45.899 UTC [stateleveldb] NewVersionedDBProvider -> DEBU 00f[0m constructing VersionedDBProvider dbPath=/var/hyperledger/production/ledgersData/stateLeveldb
+[36m2018-07-24 06:43:45.899 UTC [kvledger.util] CreateDirIfMissing -> DEBU 010[0m CreateDirIfMissing [/var/hyperledger/production/ledgersData/stateLeveldb/]
+[36m2018-07-24 06:43:45.899 UTC [kvledger.util] logDirStatus -> DEBU 011[0m Before creating dir - [/var/hyperledger/production/ledgersData/stateLeveldb/] does not exist
+[36m2018-07-24 06:43:45.900 UTC [kvledger.util] logDirStatus -> DEBU 012[0m After creating dir - [/var/hyperledger/production/ledgersData/stateLeveldb/] exists
+[36m2018-07-24 06:43:45.908 UTC [historyleveldb] NewHistoryDBProvider -> DEBU 013[0m constructing HistoryDBProvider dbPath=/var/hyperledger/production/ledgersData/historyLeveldb
+[36m2018-07-24 06:43:45.908 UTC [kvledger.util] CreateDirIfMissing -> DEBU 014[0m CreateDirIfMissing [/var/hyperledger/production/ledgersData/historyLeveldb/]
+[36m2018-07-24 06:43:45.908 UTC [kvledger.util] logDirStatus -> DEBU 015[0m Before creating dir - [/var/hyperledger/production/ledgersData/historyLeveldb/] does not exist
+[36m2018-07-24 06:43:45.908 UTC [kvledger.util] logDirStatus -> DEBU 016[0m After creating dir - [/var/hyperledger/production/ledgersData/historyLeveldb/] exists
+2018-07-24 06:43:45.912 UTC [kvledger] NewProvider -> INFO 017[0m ledger provider Initialized
+[36m2018-07-24 06:43:45.912 UTC [kvledger] recoverUnderConstructionLedger -> DEBU 018[0m Recovering under construction ledger
+[36m2018-07-24 06:43:45.912 UTC [kvledger] recoverUnderConstructionLedger -> DEBU 019[0m No under construction ledger found. Quitting recovery
+2018-07-24 06:43:45.912 UTC [ledgermgmt] initialize -> INFO 01a[0m ledger mgmt initialized
+2018-07-24 06:43:45.912 UTC [peer] func1 -> INFO 01b[0m Auto-detected peer address: 172.26.0.11:7051
+2018-07-24 06:43:45.912 UTC [peer] func1 -> INFO 01c[0m Returning peer2-org2:7051
+2018-07-24 06:43:45.912 UTC [peer] func1 -> INFO 01d[0m Auto-detected peer address: 172.26.0.11:7051
+2018-07-24 06:43:45.912 UTC [peer] func1 -> INFO 01e[0m Returning peer2-org2:7051
+2018-07-24 06:43:45.916 UTC [nodeCmd] serve -> INFO 01f[0m Starting peer with TLS enabled
+[36m2018-07-24 06:43:45.919 UTC [eventhub_producer] AddEventType -> DEBU 020[0m Registering BLOCK
+[36m2018-07-24 06:43:45.919 UTC [eventhub_producer] AddEventType -> DEBU 021[0m Registering CHAINCODE
+[36m2018-07-24 06:43:45.919 UTC [eventhub_producer] AddEventType -> DEBU 022[0m Registering REJECTION
+[36m2018-07-24 06:43:45.919 UTC [eventhub_producer] AddEventType -> DEBU 023[0m Registering REGISTER
+[36m2018-07-24 06:43:45.919 UTC [eventhub_producer] AddEventType -> DEBU 024[0m Registering FILTEREDBLOCK
+2018-07-24 06:43:45.920 UTC [eventhub_producer] start -> INFO 025[0m Event processor started
+2018-07-24 06:43:45.920 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 026[0m Entering computeChaincodeEndpoint with peerHostname: peer2-org2
+2018-07-24 06:43:45.920 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 027[0m Exit with ccEndpoint: peer2-org2:7052
+[33m2018-07-24 06:43:45.920 UTC [nodeCmd] createChaincodeServer -> WARN 028[0m peer.chaincodeListenAddress is not set, using peer2-org2:7052
+[36m2018-07-24 06:43:45.922 UTC [accessControl] newCertKeyPair -> DEBU 029[0m Classified peer2-org2 as a hostname, adding it as a DNS SAN
+[36m2018-07-24 06:43:45.923 UTC [nodeCmd] registerChaincodeSupport -> DEBU 02a[0m Chaincode startup timeout value set to 5m0s
+2018-07-24 06:43:45.924 UTC [chaincode] NewChaincodeSupport -> INFO 02b[0m Chaincode support using peerAddress: peer2-org2:7052
+[36m2018-07-24 06:43:45.924 UTC [chaincode] NewChaincodeSupport -> DEBU 02c[0m Turn off keepalive(value 0)
+[36m2018-07-24 06:43:45.924 UTC [chaincode] NewChaincodeSupport -> DEBU 02d[0m Setting execute timeout value to 30s
+[36m2018-07-24 06:43:45.924 UTC [chaincode] getLogLevelFromViper -> DEBU 02e[0m CORE_CHAINCODE_LEVEL set to level info
+[36m2018-07-24 06:43:45.924 UTC [chaincode] getLogLevelFromViper -> DEBU 02f[0m CORE_CHAINCODE_SHIM set to level warning
+2018-07-24 06:43:45.924 UTC [sccapi] registerSysCC -> INFO 030[0m system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+2018-07-24 06:43:45.924 UTC [sccapi] registerSysCC -> INFO 031[0m system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+2018-07-24 06:43:45.924 UTC [sccapi] registerSysCC -> INFO 032[0m system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+2018-07-24 06:43:45.924 UTC [sccapi] registerSysCC -> INFO 033[0m system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+2018-07-24 06:43:45.924 UTC [sccapi] registerSysCC -> INFO 034[0m system chaincode qscc(github.com/hyperledger/fabric/core/chaincode/qscc) registered
+[36m2018-07-24 06:43:45.924 UTC [nodeCmd] serve -> DEBU 035[0m Running peer
+[36m2018-07-24 06:43:45.924 UTC [viperutil] getKeysRecursively -> DEBU 036[0m Found map[string]interface{} value for peer.handlers
+[36m2018-07-24 06:43:45.924 UTC [viperutil] unmarshalJSON -> DEBU 037[0m Unmarshal JSON: value is not a string: [map[name:DefaultAuth] map[name:ExpirationCheck]]
+[36m2018-07-24 06:43:45.924 UTC [viperutil] getKeysRecursively -> DEBU 038[0m Found real value for peer.handlers.authFilters setting to []interface {} [map[name:DefaultAuth] map[name:ExpirationCheck]]
+[36m2018-07-24 06:43:45.924 UTC [viperutil] unmarshalJSON -> DEBU 039[0m Unmarshal JSON: value is not a string: [map[name:DefaultDecorator]]
+[36m2018-07-24 06:43:45.924 UTC [viperutil] getKeysRecursively -> DEBU 03a[0m Found real value for peer.handlers.decorators setting to []interface {} [map[name:DefaultDecorator]]
+[36m2018-07-24 06:43:45.924 UTC [viperutil] EnhancedExactUnmarshalKey -> DEBU 03b[0m map[peer.handlers:map[authFilters:[map[name:DefaultAuth] map[name:ExpirationCheck]] decorators:[map[name:DefaultDecorator]]]]
+[36m2018-07-24 06:43:45.924 UTC [msp] GetLocalMSP -> DEBU 03c[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.924 UTC [msp] GetDefaultSigningIdentity -> DEBU 03d[0m Obtaining default signing identity
+2018-07-24 06:43:45.928 UTC [gossip/service] func1 -> INFO 03e[0m Initialize gossip with endpoint peer2-org2:7051 and bootstrap set [peer1-org2:7051]
+[36m2018-07-24 06:43:45.929 UTC [msp] GetLocalMSP -> DEBU 03f[0m Returning existing local MSP
+2018-07-24 06:43:45.929 UTC [msp] DeserializeIdentity -> INFO 040[0m Obtaining identity
+[36m2018-07-24 06:43:45.929 UTC [msp/identity] newIdentity -> DEBU 041[0m Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICsTCCAlegAwIBAgIUGrLzFJKQ4n1T9CUFY7kBB8GLT4UwCgYIKoZIzj0EAwIw
+ZjELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGY2xpZW50MRcwFQYDVQQDEw5yY2Etb3Jn
+Mi1hZG1pbjAeFw0xODA3MjQwNjM5MDBaFw0xOTA3MjQwNjQ0MDBaMG0xCzAJBgNV
+BAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJs
+ZWRnZXIxGjALBgNVBAsTBHBlZXIwCwYDVQQLEwRvcmcxMRMwEQYDVQQDEwpwZWVy
+Mi1vcmcyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEA042YV3hSSK4wyGGvniG
+YJEblZyimWr3KY5ttGR7Zqq2x82bo6bJEU+gfjG//dORrs8FkjkBTtETKRfmDe1N
+N6OB2zCB2DAOBgNVHQ8BAf8EBAMCB4AwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU
+/cZHfEExmo/dYd/TvMEe4pCd3QQwHwYDVR0jBBgwFoAUgii3qW8CCNeQ8N8/p8zJ
+pp+RI0swFwYDVR0RBBAwDoIMZDQzY2RlMzEyYjMwMF8GCCoDBAUGBwgBBFN7ImF0
+dHJzIjp7ImhmLkFmZmlsaWF0aW9uIjoib3JnMSIsImhmLkVucm9sbG1lbnRJRCI6
+InBlZXIyLW9yZzIiLCJoZi5UeXBlIjoicGVlciJ9fTAKBggqhkjOPQQDAgNIADBF
+AiEA4Q6C3SYnOeO3R5KKj6WrunmNE20u4TvUIUwrFECLlWICIBtnP7iKvu1ykMS3
+4pAEyRi4oCOMLfUMgWlSwN7nSU2f
+-----END CERTIFICATE-----
+[36m2018-07-24 06:43:45.929 UTC [msp] GetLocalMSP -> DEBU 042[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.929 UTC [msp] GetLocalMSP -> DEBU 043[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.929 UTC [msp] Validate -> DEBU 044[0m MSP org2MSP validating identity
+[36m2018-07-24 06:43:45.929 UTC [msp] GetLocalMSP -> DEBU 045[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.930 UTC [msp] GetLocalMSP -> DEBU 046[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.930 UTC [msp] Validate -> DEBU 047[0m MSP org2MSP validating identity
+2018-07-24 06:43:45.930 UTC [gossip/discovery] NewDiscoveryService -> INFO 048[0m Started {peer2-org2:7051 [] [102 107 57 34 10 20 113 181 38 185 232 34 233 164 241 103 214 79 255 29 11 13 186 230 55 235 221 254 57 200 107 90] peer2-org2:7051 <nil>} incTime is 1532414625930444887
+2018-07-24 06:43:45.930 UTC [gossip/gossip] NewGossipService -> INFO 049[0m Creating gossip service with self membership of {peer2-org2:7051 [] [102 107 57 34 10 20 113 181 38 185 232 34 233 164 241 103 214 79 255 29 11 13 186 230 55 235 221 254 57 200 107 90] peer2-org2:7051 <nil>}
+[36m2018-07-24 06:43:45.931 UTC [gossip/discovery] periodicalSendAlive -> DEBU 04a[0m Sleeping 5s
+[36m2018-07-24 06:43:45.931 UTC [gossip/discovery] periodicalReconnectToDead -> DEBU 04b[0m Sleeping 25s
+[36m2018-07-24 06:43:45.931 UTC [msp] GetLocalMSP -> DEBU 04c[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.931 UTC [msp] GetLocalMSP -> DEBU 04d[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.932 UTC [msp] Validate -> DEBU 04e[0m MSP org2MSP validating identity
+[36m2018-07-24 06:43:45.932 UTC [msp] GetLocalMSP -> DEBU 04f[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.932 UTC [msp] GetLocalMSP -> DEBU 050[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.932 UTC [msp] Validate -> DEBU 051[0m MSP org2MSP validating identity
+[36m2018-07-24 06:43:45.932 UTC [msp] GetLocalMSP -> DEBU 052[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.932 UTC [msp] GetDefaultSigningIdentity -> DEBU 053[0m Obtaining default signing identity
+[36m2018-07-24 06:43:45.932 UTC [msp/identity] Sign -> DEBU 054[0m Sign: plaintext: 1801AA0192080A20666B39220A1471B5...455254494649434154452D2D2D2D2D0A 
+[36m2018-07-24 06:43:45.932 UTC [msp/identity] Sign -> DEBU 055[0m Sign: digest: 103AEDE77DEDBFB86AFF4218AA281445441D0ED31EB8B74C5184CA0EC4E7D739 
+2018-07-24 06:43:45.932 UTC [gossip/gossip] start -> INFO 057[0m Gossip instance peer2-org2:7051 started
+[36m2018-07-24 06:43:45.932 UTC [gossip/gossip] syncDiscovery -> DEBU 058[0m Entering discovery sync with interval 4s
+[36m2018-07-24 06:43:45.933 UTC [msp] GetLocalMSP -> DEBU 059[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.933 UTC [msp] GetDefaultSigningIdentity -> DEBU 05a[0m Obtaining default signing identity
+[36m2018-07-24 06:43:45.933 UTC [msp/identity] Sign -> DEBU 05b[0m Sign: plaintext: 18012AB3080A330A0F70656572322D6F...455254494649434154452D2D2D2D2D0A 
+[36m2018-07-24 06:43:45.933 UTC [msp/identity] Sign -> DEBU 05c[0m Sign: digest: 71B40FEF29C07A6DC05C74E4436F2CB779DFE4981814B7C516E08EEB1ED5423E 
+[36m2018-07-24 06:43:45.933 UTC [msp] GetLocalMSP -> DEBU 05d[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.933 UTC [msp] GetDefaultSigningIdentity -> DEBU 05e[0m Obtaining default signing identity
+[36m2018-07-24 06:43:45.933 UTC [msp/identity] Sign -> DEBU 05f[0m Sign: plaintext: 0A0F70656572322D6F7267323A37303531 
+[36m2018-07-24 06:43:45.933 UTC [msp/identity] Sign -> DEBU 060[0m Sign: digest: 8CF29B2934523B98C2FA281E337052E4DE3FF09768FE2885C602B745C539AB25 
+[36m2018-07-24 06:43:45.932 UTC [ccprovider] NewCCContext -> DEBU 056[0m NewCCCC (chain=,chaincode=cscc,version=1.1.0,txid=f8f9fc46-8244-4699-87cf-8af087847c3b,syscc=true,proposal=0x0,canname=cscc:1.1.0
+[36m2018-07-24 06:43:45.933 UTC [gossip/discovery] Connect -> DEBU 062[0m Entering {peer1-org2:7051 [] [] peer1-org2:7051 <nil>}
+[36m2018-07-24 06:43:45.933 UTC [gossip/discovery] Connect -> DEBU 063[0m Exiting
+[36m2018-07-24 06:43:45.933 UTC [chaincode] launchAndWaitForRegister -> DEBU 061[0m chaincode cscc:1.1.0 is being launched
+[36m2018-07-24 06:43:45.937 UTC [msp] GetLocalMSP -> DEBU 064[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.937 UTC [msp] GetDefaultSigningIdentity -> DEBU 065[0m Obtaining default signing identity
+[36m2018-07-24 06:43:45.937 UTC [msp/identity] Sign -> DEBU 066[0m Sign: plaintext: 180172B4080A20666B39220A1471B526...BB4D21299F0FBB5E37E6FE0019E00D82 
+[36m2018-07-24 06:43:45.937 UTC [msp/identity] Sign -> DEBU 067[0m Sign: digest: D294C9193C009B466785719BE58DEEBA5BCC7746CE502A834CABD1B8EA60E3C1 
+[36m2018-07-24 06:43:45.937 UTC [gossip/comm] authenticateRemotePeer -> DEBU 068[0m Sending GossipMessage: tag:EMPTY conn:<pki_id:"fk9\"\n\024q\265&\271\350\"\351\244\361g\326O\377\035\013\r\272\3467\353\335\3769\310kZ" identity:"\n\007org2MSP\022\341\007-----BEGIN CERTIFICATE-----\nMIICsTCCAlegAwIBAgIUGrLzFJKQ4n1T9CUFY7kBB8GLT4UwCgYIKoZIzj0EAwIw\nZjELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGY2xpZW50MRcwFQYDVQQDEw5yY2Etb3Jn\nMi1hZG1pbjAeFw0xODA3MjQwNjM5MDBaFw0xOTA3MjQwNjQ0MDBaMG0xCzAJBgNV\nBAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJs\nZWRnZXIxGjALBgNVBAsTBHBlZXIwCwYDVQQLEwRvcmcxMRMwEQYDVQQDEwpwZWVy\nMi1vcmcyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEA042YV3hSSK4wyGGvniG\nYJEblZyimWr3KY5ttGR7Zqq2x82bo6bJEU+gfjG//dORrs8FkjkBTtETKRfmDe1N\nN6OB2zCB2DAOBgNVHQ8BAf8EBAMCB4AwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU\n/cZHfEExmo/dYd/TvMEe4pCd3QQwHwYDVR0jBBgwFoAUgii3qW8CCNeQ8N8/p8zJ\npp+RI0swFwYDVR0RBBAwDoIMZDQzY2RlMzEyYjMwMF8GCCoDBAUGBwgBBFN7ImF0\ndHJzIjp7ImhmLkFmZmlsaWF0aW9uIjoib3JnMSIsImhmLkVucm9sbG1lbnRJRCI6\nInBlZXIyLW9yZzIiLCJoZi5UeXBlIjoicGVlciJ9fTAKBggqhkjOPQQDAgNIADBF\nAiEA4Q6C3SYnOeO3R5KKj6WrunmNE20u4TvUIUwrFECLlWICIBtnP7iKvu1ykMS3\n4pAEyRi4oCOMLfUMgWlSwN7nSU2f\n-----END CERTIFICATE-----\n" tls_cert_hash:"o\236B\225\355EN\263-(_\363D:oq\273M!)\237\017\273^7\346\376\000\031\340\r\202" > , Envelope: 1081 bytes, Signature: 70 bytes to 172.26.0.13:7051
+[36m2018-07-24 06:43:45.941 UTC [gossip/comm] authenticateRemotePeer -> DEBU 069[0m Received pki_id:"2\311-\001Q\317\206\267\332q_\311\313\263\347\213&\261\005\rU\271\217\350\331C\240\233\nF\334V" identity:"\n\007org2MSP\022\341\007-----BEGIN CERTIFICATE-----\nMIICsDCCAlegAwIBAgIUcAXnkkmf6qYy4IgPZ1ULp68UcsswCgYIKoZIzj0EAwIw\nZjELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGY2xpZW50MRcwFQYDVQQDEw5yY2Etb3Jn\nMi1hZG1pbjAeFw0xODA3MjQwNjM5MDBaFw0xOTA3MjQwNjQ0MDBaMG0xCzAJBgNV\nBAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJs\nZWRnZXIxGjALBgNVBAsTBHBlZXIwCwYDVQQLEwRvcmcxMRMwEQYDVQQDEwpwZWVy\nMS1vcmcyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEuUlmTNKrUW/Uyk5AzYPE\nXUZWNgelQ/+1lCEiqKzF6KhCXAL5bMOAnH5EqgRPy/u6fOGbHGZo51zYTMaK1FUE\nkaOB2zCB2DAOBgNVHQ8BAf8EBAMCB4AwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU\nB4uH8vSUQL/PcN4rQ5WVY0BuG7UwHwYDVR0jBBgwFoAUgii3qW8CCNeQ8N8/p8zJ\npp+RI0swFwYDVR0RBBAwDoIMMWFhZWJlOGFlNzY0MF8GCCoDBAUGBwgBBFN7ImF0\ndHJzIjp7ImhmLkFmZmlsaWF0aW9uIjoib3JnMSIsImhmLkVucm9sbG1lbnRJRCI6\nInBlZXIxLW9yZzIiLCJoZi5UeXBlIjoicGVlciJ9fTAKBggqhkjOPQQDAgNHADBE\nAiAssef7Uw5gbKo9RWVvSJUnPwaV4j+AmjGB78c8v6mfWwIgJQwfJw9V/d4xAP2y\nRs2ZdtkK3zkwxgPxdmWZw6JTjlA=\n-----END CERTIFICATE-----\n" tls_cert_hash:"\270\010\261\215\030\n\025\013q\300W\027D\303\250\t\023[\342\034\357t\273c\177hd_\301x&\345"  from 172.26.0.13:7051
+[36m2018-07-24 06:43:45.941 UTC [msp] GetLocalMSP -> DEBU 06a[0m Returning existing local MSP
+2018-07-24 06:43:45.941 UTC [msp] DeserializeIdentity -> INFO 06b[0m Obtaining identity
+[36m2018-07-24 06:43:45.942 UTC [msp/identity] newIdentity -> DEBU 06c[0m Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICsDCCAlegAwIBAgIUcAXnkkmf6qYy4IgPZ1ULp68UcsswCgYIKoZIzj0EAwIw
+ZjELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGY2xpZW50MRcwFQYDVQQDEw5yY2Etb3Jn
+Mi1hZG1pbjAeFw0xODA3MjQwNjM5MDBaFw0xOTA3MjQwNjQ0MDBaMG0xCzAJBgNV
+BAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJs
+ZWRnZXIxGjALBgNVBAsTBHBlZXIwCwYDVQQLEwRvcmcxMRMwEQYDVQQDEwpwZWVy
+MS1vcmcyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEuUlmTNKrUW/Uyk5AzYPE
+XUZWNgelQ/+1lCEiqKzF6KhCXAL5bMOAnH5EqgRPy/u6fOGbHGZo51zYTMaK1FUE
+kaOB2zCB2DAOBgNVHQ8BAf8EBAMCB4AwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU
+B4uH8vSUQL/PcN4rQ5WVY0BuG7UwHwYDVR0jBBgwFoAUgii3qW8CCNeQ8N8/p8zJ
+pp+RI0swFwYDVR0RBBAwDoIMMWFhZWJlOGFlNzY0MF8GCCoDBAUGBwgBBFN7ImF0
+dHJzIjp7ImhmLkFmZmlsaWF0aW9uIjoib3JnMSIsImhmLkVucm9sbG1lbnRJRCI6
+InBlZXIxLW9yZzIiLCJoZi5UeXBlIjoicGVlciJ9fTAKBggqhkjOPQQDAgNHADBE
+AiAssef7Uw5gbKo9RWVvSJUnPwaV4j+AmjGB78c8v6mfWwIgJQwfJw9V/d4xAP2y
+Rs2ZdtkK3zkwxgPxdmWZw6JTjlA=
+-----END CERTIFICATE-----
+[36m2018-07-24 06:43:45.942 UTC [msp] GetLocalMSP -> DEBU 06d[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.942 UTC [msp] Validate -> DEBU 06e[0m MSP org2MSP validating identity
+[36m2018-07-24 06:43:45.943 UTC [msp] GetLocalMSP -> DEBU 06f[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.943 UTC [msp] GetLocalMSP -> DEBU 070[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.943 UTC [msp] Validate -> DEBU 071[0m MSP org2MSP validating identity
+[36m2018-07-24 06:43:45.944 UTC [msp] GetLocalMSP -> DEBU 072[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.944 UTC [msp] GetLocalMSP -> DEBU 073[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.944 UTC [msp] Validate -> DEBU 074[0m MSP org2MSP validating identity
+[36m2018-07-24 06:43:45.944 UTC [msp/identity] Verify -> DEBU 075[0m Verify: digest = 00000000  b6 5b bb ba 8f a7 eb a3  d0 34 81 a5 a1 0f dc df  |.[.......4......|
+00000010  a0 40 d8 ed 30 39 55 af  38 d1 32 62 63 3d 25 e5  |.@..09U.8.2bc=%.|
+[36m2018-07-24 06:43:45.945 UTC [msp/identity] Verify -> DEBU 076[0m Verify: sig = 00000000  30 44 02 20 2c 36 b8 15  05 51 61 c0 cd 89 05 f3  |0D. ,6...Qa.....|
+00000010  e9 35 f2 c6 41 be 78 e7  09 44 bd 0f e1 d1 bf ef  |.5..A.x..D......|
+00000020  a5 42 41 82 02 20 1c 63  52 b2 55 67 80 f0 54 e6  |.BA.. .cR.Ug..T.|
+00000030  c3 6f a0 d2 31 3c 3b 53  3a b3 76 f2 66 d7 1d b4  |.o..1<;S:.v.f...|
+00000040  12 83 dd 05 96 a3                                 |......|
+[36m2018-07-24 06:43:45.945 UTC [gossip/comm] authenticateRemotePeer -> DEBU 077[0m Authenticated 172.26.0.13:7051
+[36m2018-07-24 06:43:45.945 UTC [msp] GetLocalMSP -> DEBU 078[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.946 UTC [msp] GetLocalMSP -> DEBU 079[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.946 UTC [msp] GetDefaultSigningIdentity -> DEBU 07a[0m Obtaining default signing identity
+[36m2018-07-24 06:43:45.946 UTC [msp/identity] Sign -> DEBU 07b[0m Sign: plaintext: 18012AB3080A330A0F70656572322D6F...455254494649434154452D2D2D2D2D0A 
+[36m2018-07-24 06:43:45.946 UTC [msp/identity] Sign -> DEBU 07c[0m Sign: digest: B4E33E7012D531E3093686D5DA740057AFA2E230247257B44C5DEE916E256240 
+[36m2018-07-24 06:43:45.946 UTC [msp] GetLocalMSP -> DEBU 07d[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.946 UTC [msp] GetDefaultSigningIdentity -> DEBU 07e[0m Obtaining default signing identity
+[36m2018-07-24 06:43:45.946 UTC [msp/identity] Sign -> DEBU 07f[0m Sign: plaintext: 0A0F70656572322D6F7267323A37303531 
+[36m2018-07-24 06:43:45.946 UTC [msp/identity] Sign -> DEBU 080[0m Sign: digest: 8CF29B2934523B98C2FA281E337052E4DE3FF09768FE2885C602B745C539AB25 
+[36m2018-07-24 06:43:45.947 UTC [msp] GetLocalMSP -> DEBU 081[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.947 UTC [gossip/comm] Send -> DEBU 082[0m Entering, sending GossipMessage: nonce:2645365580345099926 tag:EMPTY mem_req:<self_information:<payload:"\030\001*\263\010\n3\n\017peer2-org2:7051\032 fk9\"\n\024q\265&\271\350\"\351\244\361g\326O\377\035\013\r\272\3467\353\335\3769\310kZ\022\014\010\327\200\312\231\273\337\216\242\025\020\002\"\355\007\n\007org2MSP\022\341\007-----BEGIN CERTIFICATE-----\nMIICsTCCAlegAwIBAgIUGrLzFJKQ4n1T9CUFY7kBB8GLT4UwCgYIKoZIzj0EAwIw\nZjELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGY2xpZW50MRcwFQYDVQQDEw5yY2Etb3Jn\nMi1hZG1pbjAeFw0xODA3MjQwNjM5MDBaFw0xOTA3MjQwNjQ0MDBaMG0xCzAJBgNV\nBAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJs\nZWRnZXIxGjALBgNVBAsTBHBlZXIwCwYDVQQLEwRvcmcxMRMwEQYDVQQDEwpwZWVy\nMi1vcmcyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEA042YV3hSSK4wyGGvniG\nYJEblZyimWr3KY5ttGR7Zqq2x82bo6bJEU+gfjG//dORrs8FkjkBTtETKRfmDe1N\nN6OB2zCB2DAOBgNVHQ8BAf8EBAMCB4AwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU\n/cZHfEExmo/dYd/TvMEe4pCd3QQwHwYDVR0jBBgwFoAUgii3qW8CCNeQ8N8/p8zJ\npp+RI0swFwYDVR0RBBAwDoIMZDQzY2RlMzEyYjMwMF8GCCoDBAUGBwgBBFN7ImF0\ndHJzIjp7ImhmLkFmZmlsaWF0aW9uIjoib3JnMSIsImhmLkVucm9sbG1lbnRJRCI6\nInBlZXIyLW9yZzIiLCJoZi5UeXBlIjoicGVlciJ9fTAKBggqhkjOPQQDAgNIADBF\nAiEA4Q6C3SYnOeO3R5KKj6WrunmNE20u4TvUIUwrFECLlWICIBtnP7iKvu1ykMS3\n4pAEyRi4oCOMLfUMgWlSwN7nSU2f\n-----END CERTIFICATE-----\n" signature:"0D\002 (&\367Q2\324\014\323\364\366>5\353A\267\200\377\376\r\330\250\312\345\324\320b\322\022\035\013\211\337\002 \024\214\332\236\342v19\221b{Cz/@C\216R\264\300GI\272\277\356\320Q^\2608\217\236" secret_envelope:<payload:"\n\017peer2-org2:7051" signature:"0E\002!\000\224)\205J\207\346\203s\312\t\240`\356F\277\204\245\020\237\356$)\005Mv\303\005\262f\250\3660\002 E\223H\263k\376t\000\360\035\342\243\206\317\266\314\n\304\200\n\207S\275\013\230j\306\306\202\030\353\034" > > > , Envelope: 1267 bytes, Signature: 0 bytes to  1 peers
+[36m2018-07-24 06:43:45.947 UTC [gossip/comm] sendToEndpoint -> DEBU 083[0m Entering, Sending to peer1-org2:7051 , msg: GossipMessage: nonce:2645365580345099926 tag:EMPTY mem_req:<self_information:<payload:"\030\001*\263\010\n3\n\017peer2-org2:7051\032 fk9\"\n\024q\265&\271\350\"\351\244\361g\326O\377\035\013\r\272\3467\353\335\3769\310kZ\022\014\010\327\200\312\231\273\337\216\242\025\020\002\"\355\007\n\007org2MSP\022\341\007-----BEGIN CERTIFICATE-----\nMIICsTCCAlegAwIBAgIUGrLzFJKQ4n1T9CUFY7kBB8GLT4UwCgYIKoZIzj0EAwIw\nZjELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGY2xpZW50MRcwFQYDVQQDEw5yY2Etb3Jn\nMi1hZG1pbjAeFw0xODA3MjQwNjM5MDBaFw0xOTA3MjQwNjQ0MDBaMG0xCzAJBgNV\nBAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJs\nZWRnZXIxGjALBgNVBAsTBHBlZXIwCwYDVQQLEwRvcmcxMRMwEQYDVQQDEwpwZWVy\nMi1vcmcyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEA042YV3hSSK4wyGGvniG\nYJEblZyimWr3KY5ttGR7Zqq2x82bo6bJEU+gfjG//dORrs8FkjkBTtETKRfmDe1N\nN6OB2zCB2DAOBgNVHQ8BAf8EBAMCB4AwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU\n/cZHfEExmo/dYd/TvMEe4pCd3QQwHwYDVR0jBBgwFoAUgii3qW8CCNeQ8N8/p8zJ\npp+RI0swFwYDVR0RBBAwDoIMZDQzY2RlMzEyYjMwMF8GCCoDBAUGBwgBBFN7ImF0\ndHJzIjp7ImhmLkFmZmlsaWF0aW9uIjoib3JnMSIsImhmLkVucm9sbG1lbnRJRCI6\nInBlZXIyLW9yZzIiLCJoZi5UeXBlIjoicGVlciJ9fTAKBggqhkjOPQQDAgNIADBF\nAiEA4Q6C3SYnOeO3R5KKj6WrunmNE20u4TvUIUwrFECLlWICIBtnP7iKvu1ykMS3\n4pAEyRi4oCOMLfUMgWlSwN7nSU2f\n-----END CERTIFICATE-----\n" signature:"0D\002 (&\367Q2\324\014\323\364\366>5\353A\267\200\377\376\r\330\250\312\345\324\320b\322\022\035\013\211\337\002 \024\214\332\236\342v19\221b{Cz/@C\216R\264\300GI\272\277\356\320Q^\2608\217\236" secret_envelope:<payload:"\n\017peer2-org2:7051" signature:"0E\002!\000\224)\205J\207\346\203s\312\t\240`\356F\277\204\245\020\237\356$)\005Mv\303\005\262f\250\3660\002 E\223H\263k\376t\000\360\035\342\243\206\317\266\314\n\304\200\n\207S\275\013\230j\306\306\202\030\353\034" > > > , Envelope: 1267 bytes, Signature: 0 bytes
+[36m2018-07-24 06:43:45.947 UTC [gossip/comm] createConnection -> DEBU 084[0m Entering peer1-org2:7051 [50 201 45 1 81 207 134 183 218 113 95 201 203 179 231 139 38 177 5 13 85 185 143 232 217 67 160 155 10 70 220 86]
+[36m2018-07-24 06:43:45.951 UTC [msp] GetLocalMSP -> DEBU 085[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.952 UTC [msp] GetDefaultSigningIdentity -> DEBU 086[0m Obtaining default signing identity
+[36m2018-07-24 06:43:45.952 UTC [msp/identity] Sign -> DEBU 087[0m Sign: plaintext: 180172B4080A20666B39220A1471B526...BB4D21299F0FBB5E37E6FE0019E00D82 
+[36m2018-07-24 06:43:45.952 UTC [msp/identity] Sign -> DEBU 088[0m Sign: digest: D294C9193C009B466785719BE58DEEBA5BCC7746CE502A834CABD1B8EA60E3C1 
+[36m2018-07-24 06:43:45.952 UTC [gossip/comm] authenticateRemotePeer -> DEBU 089[0m Sending GossipMessage: tag:EMPTY conn:<pki_id:"fk9\"\n\024q\265&\271\350\"\351\244\361g\326O\377\035\013\r\272\3467\353\335\3769\310kZ" identity:"\n\007org2MSP\022\341\007-----BEGIN CERTIFICATE-----\nMIICsTCCAlegAwIBAgIUGrLzFJKQ4n1T9CUFY7kBB8GLT4UwCgYIKoZIzj0EAwIw\nZjELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGY2xpZW50MRcwFQYDVQQDEw5yY2Etb3Jn\nMi1hZG1pbjAeFw0xODA3MjQwNjM5MDBaFw0xOTA3MjQwNjQ0MDBaMG0xCzAJBgNV\nBAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJs\nZWRnZXIxGjALBgNVBAsTBHBlZXIwCwYDVQQLEwRvcmcxMRMwEQYDVQQDEwpwZWVy\nMi1vcmcyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEA042YV3hSSK4wyGGvniG\nYJEblZyimWr3KY5ttGR7Zqq2x82bo6bJEU+gfjG//dORrs8FkjkBTtETKRfmDe1N\nN6OB2zCB2DAOBgNVHQ8BAf8EBAMCB4AwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU\n/cZHfEExmo/dYd/TvMEe4pCd3QQwHwYDVR0jBBgwFoAUgii3qW8CCNeQ8N8/p8zJ\npp+RI0swFwYDVR0RBBAwDoIMZDQzY2RlMzEyYjMwMF8GCCoDBAUGBwgBBFN7ImF0\ndHJzIjp7ImhmLkFmZmlsaWF0aW9uIjoib3JnMSIsImhmLkVucm9sbG1lbnRJRCI6\nInBlZXIyLW9yZzIiLCJoZi5UeXBlIjoicGVlciJ9fTAKBggqhkjOPQQDAgNIADBF\nAiEA4Q6C3SYnOeO3R5KKj6WrunmNE20u4TvUIUwrFECLlWICIBtnP7iKvu1ykMS3\n4pAEyRi4oCOMLfUMgWlSwN7nSU2f\n-----END CERTIFICATE-----\n" tls_cert_hash:"o\236B\225\355EN\263-(_\363D:oq\273M!)\237\017\273^7\346\376\000\031\340\r\202" > , Envelope: 1081 bytes, Signature: 71 bytes to 172.26.0.13:7051
+[36m2018-07-24 06:43:45.954 UTC [gossip/comm] authenticateRemotePeer -> DEBU 08a[0m Received pki_id:"2\311-\001Q\317\206\267\332q_\311\313\263\347\213&\261\005\rU\271\217\350\331C\240\233\nF\334V" identity:"\n\007org2MSP\022\341\007-----BEGIN CERTIFICATE-----\nMIICsDCCAlegAwIBAgIUcAXnkkmf6qYy4IgPZ1ULp68UcsswCgYIKoZIzj0EAwIw\nZjELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGY2xpZW50MRcwFQYDVQQDEw5yY2Etb3Jn\nMi1hZG1pbjAeFw0xODA3MjQwNjM5MDBaFw0xOTA3MjQwNjQ0MDBaMG0xCzAJBgNV\nBAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJs\nZWRnZXIxGjALBgNVBAsTBHBlZXIwCwYDVQQLEwRvcmcxMRMwEQYDVQQDEwpwZWVy\nMS1vcmcyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEuUlmTNKrUW/Uyk5AzYPE\nXUZWNgelQ/+1lCEiqKzF6KhCXAL5bMOAnH5EqgRPy/u6fOGbHGZo51zYTMaK1FUE\nkaOB2zCB2DAOBgNVHQ8BAf8EBAMCB4AwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU\nB4uH8vSUQL/PcN4rQ5WVY0BuG7UwHwYDVR0jBBgwFoAUgii3qW8CCNeQ8N8/p8zJ\npp+RI0swFwYDVR0RBBAwDoIMMWFhZWJlOGFlNzY0MF8GCCoDBAUGBwgBBFN7ImF0\ndHJzIjp7ImhmLkFmZmlsaWF0aW9uIjoib3JnMSIsImhmLkVucm9sbG1lbnRJRCI6\nInBlZXIxLW9yZzIiLCJoZi5UeXBlIjoicGVlciJ9fTAKBggqhkjOPQQDAgNHADBE\nAiAssef7Uw5gbKo9RWVvSJUnPwaV4j+AmjGB78c8v6mfWwIgJQwfJw9V/d4xAP2y\nRs2ZdtkK3zkwxgPxdmWZw6JTjlA=\n-----END CERTIFICATE-----\n" tls_cert_hash:"\270\010\261\215\030\n\025\013q\300W\027D\303\250\t\023[\342\034\357t\273c\177hd_\301x&\345"  from 172.26.0.13:7051
+[36m2018-07-24 06:43:45.954 UTC [msp] GetLocalMSP -> DEBU 08b[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.954 UTC [msp] GetLocalMSP -> DEBU 08c[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.954 UTC [msp] Validate -> DEBU 08d[0m MSP org2MSP validating identity
+[36m2018-07-24 06:43:45.955 UTC [msp] GetLocalMSP -> DEBU 08e[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.955 UTC [msp] GetLocalMSP -> DEBU 08f[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.955 UTC [msp] Validate -> DEBU 090[0m MSP org2MSP validating identity
+[36m2018-07-24 06:43:45.955 UTC [msp] GetLocalMSP -> DEBU 091[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.955 UTC [msp] GetLocalMSP -> DEBU 092[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.955 UTC [msp] Validate -> DEBU 093[0m MSP org2MSP validating identity
+[36m2018-07-24 06:43:45.955 UTC [msp/identity] Verify -> DEBU 094[0m Verify: digest = 00000000  b6 5b bb ba 8f a7 eb a3  d0 34 81 a5 a1 0f dc df  |.[.......4......|
+00000010  a0 40 d8 ed 30 39 55 af  38 d1 32 62 63 3d 25 e5  |.@..09U.8.2bc=%.|
+[36m2018-07-24 06:43:45.955 UTC [msp/identity] Verify -> DEBU 095[0m Verify: sig = 00000000  30 44 02 20 58 23 71 a3  0f 1e 91 4c 81 91 ce 6d  |0D. X#q....L...m|
+00000010  d9 f6 d7 87 ea 57 dc f3  d8 63 26 8c 2d bc 91 48  |.....W...c&.-..H|
+00000020  5c f3 cd d1 02 20 4b 99  cd 0a 9f bd 8b 3a f5 8c  |\.... K......:..|
+00000030  64 ec 92 ee c6 21 f7 f0  79 95 53 7f aa 9e 89 56  |d....!..y.S....V|
+00000040  63 1e a2 cf 1f ba                                 |c.....|
+[36m2018-07-24 06:43:45.956 UTC [chaincode] getLaunchConfigs -> DEBU 096[0m Executable is chaincode
+[36m2018-07-24 06:43:45.956 UTC [chaincode] getLaunchConfigs -> DEBU 097[0m Args [chaincode -peer.address=peer2-org2:7052]
+[36m2018-07-24 06:43:45.956 UTC [chaincode] getLaunchConfigs -> DEBU 098[0m Envs [CORE_CHAINCODE_ID_NAME=cscc:1.1.0 CORE_PEER_TLS_ENABLED=true CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt CORE_CHAINCODE_LOGGING_LEVEL=info CORE_CHAINCODE_LOGGING_SHIM=warning CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}]
+[36m2018-07-24 06:43:45.956 UTC [chaincode] getLaunchConfigs -> DEBU 099[0m FilesToUpload [/etc/hyperledger/fabric/client.key /etc/hyperledger/fabric/client.crt /etc/hyperledger/fabric/peer.crt]
+[36m2018-07-24 06:43:45.956 UTC [chaincode] launch -> DEBU 09a[0m start container: cscc:1.1.0(networkid:dev,peerid:peer2-org2)
+[36m2018-07-24 06:43:45.956 UTC [chaincode] launch -> DEBU 09b[0m start container with args: chaincode -peer.address=peer2-org2:7052
+[36m2018-07-24 06:43:45.956 UTC [chaincode] launch -> DEBU 09c[0m start container with env:
+	CORE_CHAINCODE_ID_NAME=cscc:1.1.0
+	CORE_PEER_TLS_ENABLED=true
+	CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key
+	CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt
+	CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt
+	CORE_CHAINCODE_LOGGING_LEVEL=info
+	CORE_CHAINCODE_LOGGING_SHIM=warning
+	CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}
+[36m2018-07-24 06:43:45.956 UTC [container] lockContainer -> DEBU 09d[0m waiting for container(cscc-1.1.0) lock
+[36m2018-07-24 06:43:45.956 UTC [container] lockContainer -> DEBU 09e[0m got container (cscc-1.1.0) lock
+[36m2018-07-24 06:43:45.956 UTC [inproccontroller] getInstance -> DEBU 09f[0m chaincode instance created for cscc-1.1.0
+[36m2018-07-24 06:43:45.956 UTC [container] unlockContainer -> DEBU 0a0[0m container lock deleted(cscc-1.1.0)
+[36m2018-07-24 06:43:45.956 UTC [inproccontroller] func2 -> DEBU 0a1[0m chaincode-support started for  cscc-1.1.0
+[36m2018-07-24 06:43:45.956 UTC [chaincode] HandleChaincodeStream -> DEBU 0a2[0m Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+[36m2018-07-24 06:43:45.956 UTC [inproccontroller] func1 -> DEBU 0a3[0m chaincode started for cscc-1.1.0
+[36m2018-07-24 06:43:45.956 UTC [shim] StartInProc -> DEBU 0a4[0m in proc [chaincode -peer.address=peer2-org2:7052]
+[36m2018-07-24 06:43:45.956 UTC [shim] StartInProc -> DEBU 0a5[0m starting chat with peer using name=cscc:1.1.0
+[36m2018-07-24 06:43:45.956 UTC [shim] chatWithPeer -> DEBU 0a6[0m Registering.. sending REGISTER
+[36m2018-07-24 06:43:45.957 UTC [chaincode] processStream -> DEBU 0a7[0m []Received message REGISTER from shim
+[36m2018-07-24 06:43:45.957 UTC [chaincode] handleMessage -> DEBU 0a8[0m []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+[36m2018-07-24 06:43:45.957 UTC [chaincode] beforeRegisterEvent -> DEBU 0a9[0m Received REGISTER in state created
+[36m2018-07-24 06:43:45.957 UTC [chaincode] registerHandler -> DEBU 0aa[0m registered handler complete for chaincode cscc:1.1.0
+[36m2018-07-24 06:43:45.957 UTC [chaincode] beforeRegisterEvent -> DEBU 0ab[0m Got REGISTER for chaincodeID = name:"cscc:1.1.0" , sending back REGISTERED
+[36m2018-07-24 06:43:45.957 UTC [chaincode] notifyDuringStartup -> DEBU 0ac[0m Notifying during startup
+[36m2018-07-24 06:43:45.957 UTC [shim] func1 -> DEBU 0ad[0m []Received message REGISTERED from shim
+[36m2018-07-24 06:43:45.957 UTC [shim] handleMessage -> DEBU 0ae[0m []Handling ChaincodeMessage of type: REGISTERED(state:created)
+[36m2018-07-24 06:43:45.957 UTC [shim] beforeRegistered -> DEBU 0af[0m Received REGISTERED, ready for invocations
+[36m2018-07-24 06:43:45.957 UTC [chaincode] func1 -> DEBU 0b0[0m chaincode cscc:1.1.0 launch seq completed
+[36m2018-07-24 06:43:45.957 UTC [chaincode] ready -> DEBU 0b1[0m sending READY
+[36m2018-07-24 06:43:45.957 UTC [chaincode] setChaincodeProposal -> DEBU 0b2[0m Setting chaincode proposal context...
+[36m2018-07-24 06:43:45.957 UTC [chaincode] processStream -> DEBU 0b3[0m [f8f9fc46]Move state message READY
+[36m2018-07-24 06:43:45.957 UTC [chaincode] handleMessage -> DEBU 0b4[0m [f8f9fc46]Fabric side Handling ChaincodeMessage of type: READY in state established
+[36m2018-07-24 06:43:45.957 UTC [chaincode] enterReadyState -> DEBU 0b5[0m [f8f9fc46]Entered state ready
+[36m2018-07-24 06:43:45.957 UTC [chaincode] notify -> DEBU 0b6[0m notifying Txid:f8f9fc46-8244-4699-87cf-8af087847c3b, channelID:
+[36m2018-07-24 06:43:45.957 UTC [chaincode] processStream -> DEBU 0b7[0m [f8f9fc46]sending state message READY
+[36m2018-07-24 06:43:45.957 UTC [shim] func1 -> DEBU 0b8[0m [f8f9fc46]Received message READY from shim
+[36m2018-07-24 06:43:45.957 UTC [shim] handleMessage -> DEBU 0b9[0m [f8f9fc46]Handling ChaincodeMessage of type: READY(state:established)
+[36m2018-07-24 06:43:45.957 UTC [chaincode] Launch -> DEBU 0ba[0m sending init completed
+[36m2018-07-24 06:43:45.957 UTC [chaincode] Launch -> DEBU 0bb[0m LaunchChaincode complete
+[36m2018-07-24 06:43:45.957 UTC [chaincode] Execute -> DEBU 0bc[0m Entry
+[36m2018-07-24 06:43:45.957 UTC [chaincode] Execute -> DEBU 0bd[0m chaincode canonical name: cscc:1.1.0
+[36m2018-07-24 06:43:45.957 UTC [chaincode] sendExecuteMessage -> DEBU 0be[0m [f8f9fc46]Inside sendExecuteMessage. Message INIT
+[36m2018-07-24 06:43:45.957 UTC [chaincode] setChaincodeProposal -> DEBU 0bf[0m Setting chaincode proposal context...
+[36m2018-07-24 06:43:45.957 UTC [chaincode] sendExecuteMessage -> DEBU 0c0[0m [f8f9fc46]sendExecuteMsg trigger event INIT
+[36m2018-07-24 06:43:45.957 UTC [chaincode] processStream -> DEBU 0c1[0m [f8f9fc46]Move state message INIT
+[36m2018-07-24 06:43:45.957 UTC [chaincode] handleMessage -> DEBU 0c2[0m [f8f9fc46]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+[36m2018-07-24 06:43:45.957 UTC [chaincode] filterError -> DEBU 0c3[0m Ignoring NoTransitionError: no transition
+[36m2018-07-24 06:43:45.957 UTC [chaincode] processStream -> DEBU 0c4[0m [f8f9fc46]sending state message INIT
+[36m2018-07-24 06:43:45.957 UTC [shim] func1 -> DEBU 0c5[0m [f8f9fc46]Received message INIT from shim
+[36m2018-07-24 06:43:45.957 UTC [shim] handleMessage -> DEBU 0c6[0m [f8f9fc46]Handling ChaincodeMessage of type: INIT(state:ready)
+[36m2018-07-24 06:43:45.957 UTC [shim] beforeInit -> DEBU 0c7[0m Entered state ready
+[36m2018-07-24 06:43:45.957 UTC [shim] beforeInit -> DEBU 0c8[0m [f8f9fc46]Received INIT, initializing chaincode
+2018-07-24 06:43:45.957 UTC [cscc] Init -> INFO 0c9[0m Init CSCC
+[36m2018-07-24 06:43:45.958 UTC [msp] GetLocalMSP -> DEBU 0ca[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.958 UTC [shim] func1 -> DEBU 0cb[0m [f8f9fc46]Init get response status: 200
+[36m2018-07-24 06:43:45.958 UTC [shim] func1 -> DEBU 0cc[0m [f8f9fc46]Init succeeded. Sending COMPLETED
+[36m2018-07-24 06:43:45.958 UTC [shim] func1 -> DEBU 0cd[0m [f8f9fc46]Move state message COMPLETED
+[36m2018-07-24 06:43:45.958 UTC [shim] handleMessage -> DEBU 0cf[0m [f8f9fc46]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+[36m2018-07-24 06:43:45.958 UTC [shim] func1 -> DEBU 0d0[0m [f8f9fc46]send state message COMPLETED
+[36m2018-07-24 06:43:45.958 UTC [gossip/comm] authenticateRemotePeer -> DEBU 0ce[0m Authenticated 172.26.0.13:7051
+[36m2018-07-24 06:43:45.958 UTC [chaincode] processStream -> DEBU 0d1[0m [f8f9fc46]Received message COMPLETED from shim
+[36m2018-07-24 06:43:45.958 UTC [chaincode] handleMessage -> DEBU 0d2[0m [f8f9fc46]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+[36m2018-07-24 06:43:45.958 UTC [chaincode] handleMessage -> DEBU 0d3[0m [f8f9fc46-8244-4699-87cf-8af087847c3b]HandleMessage- COMPLETED. Notify
+[36m2018-07-24 06:43:45.958 UTC [chaincode] notify -> DEBU 0d4[0m notifying Txid:f8f9fc46-8244-4699-87cf-8af087847c3b, channelID:
+[36m2018-07-24 06:43:45.958 UTC [chaincode] Execute -> DEBU 0d5[0m Exit
+2018-07-24 06:43:45.958 UTC [sccapi] deploySysCC -> INFO 0d6[0m system chaincode cscc/(github.com/hyperledger/fabric/core/scc/cscc) deployed
+[36m2018-07-24 06:43:45.958 UTC [gossip/comm] createConnection -> DEBU 0d7[0m Exiting
+[36m2018-07-24 06:43:45.958 UTC [ccprovider] NewCCContext -> DEBU 0d8[0m NewCCCC (chain=,chaincode=lscc,version=1.1.0,txid=befd1149-cc76-4d2d-949c-daaa4a8869ae,syscc=true,proposal=0x0,canname=lscc:1.1.0
+[36m2018-07-24 06:43:45.958 UTC [chaincode] launchAndWaitForRegister -> DEBU 0d9[0m chaincode lscc:1.1.0 is being launched
+[36m2018-07-24 06:43:45.959 UTC [gossip/comm] sendToEndpoint -> DEBU 0da[0m Exiting
+[36m2018-07-24 06:43:45.963 UTC [chaincode] getLaunchConfigs -> DEBU 0db[0m Executable is chaincode
+[36m2018-07-24 06:43:45.963 UTC [chaincode] getLaunchConfigs -> DEBU 0dc[0m Args [chaincode -peer.address=peer2-org2:7052]
+[36m2018-07-24 06:43:45.963 UTC [chaincode] getLaunchConfigs -> DEBU 0dd[0m Envs [CORE_CHAINCODE_ID_NAME=lscc:1.1.0 CORE_PEER_TLS_ENABLED=true CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt CORE_CHAINCODE_LOGGING_LEVEL=info CORE_CHAINCODE_LOGGING_SHIM=warning CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}]
+[36m2018-07-24 06:43:45.963 UTC [chaincode] getLaunchConfigs -> DEBU 0de[0m FilesToUpload [/etc/hyperledger/fabric/client.key /etc/hyperledger/fabric/client.crt /etc/hyperledger/fabric/peer.crt]
+[36m2018-07-24 06:43:45.963 UTC [chaincode] launch -> DEBU 0df[0m start container: lscc:1.1.0(networkid:dev,peerid:peer2-org2)
+[36m2018-07-24 06:43:45.963 UTC [chaincode] launch -> DEBU 0e0[0m start container with args: chaincode -peer.address=peer2-org2:7052
+[36m2018-07-24 06:43:45.963 UTC [chaincode] launch -> DEBU 0e1[0m start container with env:
+	CORE_CHAINCODE_ID_NAME=lscc:1.1.0
+	CORE_PEER_TLS_ENABLED=true
+	CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key
+	CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt
+	CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt
+	CORE_CHAINCODE_LOGGING_LEVEL=info
+	CORE_CHAINCODE_LOGGING_SHIM=warning
+	CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}
+[36m2018-07-24 06:43:45.963 UTC [container] lockContainer -> DEBU 0e2[0m waiting for container(lscc-1.1.0) lock
+[36m2018-07-24 06:43:45.963 UTC [container] lockContainer -> DEBU 0e3[0m got container (lscc-1.1.0) lock
+[36m2018-07-24 06:43:45.963 UTC [inproccontroller] getInstance -> DEBU 0e4[0m chaincode instance created for lscc-1.1.0
+[36m2018-07-24 06:43:45.963 UTC [container] unlockContainer -> DEBU 0e5[0m container lock deleted(lscc-1.1.0)
+[36m2018-07-24 06:43:45.963 UTC [inproccontroller] func2 -> DEBU 0e6[0m chaincode-support started for  lscc-1.1.0
+[36m2018-07-24 06:43:45.963 UTC [chaincode] HandleChaincodeStream -> DEBU 0e7[0m Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+[36m2018-07-24 06:43:45.963 UTC [inproccontroller] func1 -> DEBU 0e8[0m chaincode started for lscc-1.1.0
+[36m2018-07-24 06:43:45.963 UTC [shim] StartInProc -> DEBU 0e9[0m in proc [chaincode -peer.address=peer2-org2:7052]
+[36m2018-07-24 06:43:45.963 UTC [shim] StartInProc -> DEBU 0ea[0m starting chat with peer using name=lscc:1.1.0
+[36m2018-07-24 06:43:45.963 UTC [shim] chatWithPeer -> DEBU 0eb[0m Registering.. sending REGISTER
+[36m2018-07-24 06:43:45.963 UTC [chaincode] processStream -> DEBU 0ec[0m []Received message REGISTER from shim
+[36m2018-07-24 06:43:45.963 UTC [chaincode] handleMessage -> DEBU 0ed[0m []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+[36m2018-07-24 06:43:45.963 UTC [chaincode] beforeRegisterEvent -> DEBU 0ee[0m Received REGISTER in state created
+[36m2018-07-24 06:43:45.963 UTC [chaincode] registerHandler -> DEBU 0ef[0m registered handler complete for chaincode lscc:1.1.0
+[36m2018-07-24 06:43:45.963 UTC [chaincode] beforeRegisterEvent -> DEBU 0f0[0m Got REGISTER for chaincodeID = name:"lscc:1.1.0" , sending back REGISTERED
+[36m2018-07-24 06:43:45.963 UTC [chaincode] notifyDuringStartup -> DEBU 0f1[0m Notifying during startup
+[36m2018-07-24 06:43:45.963 UTC [shim] func1 -> DEBU 0f2[0m []Received message REGISTERED from shim
+[36m2018-07-24 06:43:45.963 UTC [shim] handleMessage -> DEBU 0f3[0m []Handling ChaincodeMessage of type: REGISTERED(state:created)
+[36m2018-07-24 06:43:45.963 UTC [shim] beforeRegistered -> DEBU 0f4[0m Received REGISTERED, ready for invocations
+[36m2018-07-24 06:43:45.963 UTC [chaincode] func1 -> DEBU 0f5[0m chaincode lscc:1.1.0 launch seq completed
+[36m2018-07-24 06:43:45.963 UTC [chaincode] ready -> DEBU 0f6[0m sending READY
+[36m2018-07-24 06:43:45.963 UTC [chaincode] setChaincodeProposal -> DEBU 0f7[0m Setting chaincode proposal context...
+[36m2018-07-24 06:43:45.963 UTC [chaincode] processStream -> DEBU 0f8[0m [befd1149]Move state message READY
+[36m2018-07-24 06:43:45.963 UTC [chaincode] handleMessage -> DEBU 0f9[0m [befd1149]Fabric side Handling ChaincodeMessage of type: READY in state established
+[36m2018-07-24 06:43:45.963 UTC [chaincode] enterReadyState -> DEBU 0fa[0m [befd1149]Entered state ready
+[36m2018-07-24 06:43:45.963 UTC [chaincode] notify -> DEBU 0fb[0m notifying Txid:befd1149-cc76-4d2d-949c-daaa4a8869ae, channelID:
+[36m2018-07-24 06:43:45.963 UTC [chaincode] processStream -> DEBU 0fc[0m [befd1149]sending state message READY
+[36m2018-07-24 06:43:45.963 UTC [shim] func1 -> DEBU 0fd[0m [befd1149]Received message READY from shim
+[36m2018-07-24 06:43:45.963 UTC [shim] handleMessage -> DEBU 0fe[0m [befd1149]Handling ChaincodeMessage of type: READY(state:established)
+[36m2018-07-24 06:43:45.963 UTC [chaincode] Launch -> DEBU 0ff[0m sending init completed
+[36m2018-07-24 06:43:45.963 UTC [chaincode] Launch -> DEBU 100[0m LaunchChaincode complete
+[36m2018-07-24 06:43:45.963 UTC [chaincode] Execute -> DEBU 101[0m Entry
+[36m2018-07-24 06:43:45.963 UTC [chaincode] Execute -> DEBU 102[0m chaincode canonical name: lscc:1.1.0
+[36m2018-07-24 06:43:45.963 UTC [chaincode] sendExecuteMessage -> DEBU 103[0m [befd1149]Inside sendExecuteMessage. Message INIT
+[36m2018-07-24 06:43:45.963 UTC [chaincode] setChaincodeProposal -> DEBU 104[0m Setting chaincode proposal context...
+[36m2018-07-24 06:43:45.963 UTC [chaincode] sendExecuteMessage -> DEBU 105[0m [befd1149]sendExecuteMsg trigger event INIT
+[36m2018-07-24 06:43:45.963 UTC [chaincode] processStream -> DEBU 106[0m [befd1149]Move state message INIT
+[36m2018-07-24 06:43:45.963 UTC [chaincode] handleMessage -> DEBU 107[0m [befd1149]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+[36m2018-07-24 06:43:45.963 UTC [chaincode] filterError -> DEBU 108[0m Ignoring NoTransitionError: no transition
+[36m2018-07-24 06:43:45.963 UTC [chaincode] processStream -> DEBU 109[0m [befd1149]sending state message INIT
+[36m2018-07-24 06:43:45.963 UTC [shim] func1 -> DEBU 10a[0m [befd1149]Received message INIT from shim
+[36m2018-07-24 06:43:45.963 UTC [shim] handleMessage -> DEBU 10b[0m [befd1149]Handling ChaincodeMessage of type: INIT(state:ready)
+[36m2018-07-24 06:43:45.963 UTC [shim] beforeInit -> DEBU 10c[0m Entered state ready
+[36m2018-07-24 06:43:45.963 UTC [shim] beforeInit -> DEBU 10d[0m [befd1149]Received INIT, initializing chaincode
+[36m2018-07-24 06:43:45.963 UTC [msp] GetLocalMSP -> DEBU 10e[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.963 UTC [shim] func1 -> DEBU 10f[0m [befd1149]Init get response status: 200
+[36m2018-07-24 06:43:45.963 UTC [shim] func1 -> DEBU 110[0m [befd1149]Init succeeded. Sending COMPLETED
+[36m2018-07-24 06:43:45.963 UTC [shim] func1 -> DEBU 111[0m [befd1149]Move state message COMPLETED
+[36m2018-07-24 06:43:45.963 UTC [shim] handleMessage -> DEBU 112[0m [befd1149]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+[36m2018-07-24 06:43:45.963 UTC [shim] func1 -> DEBU 113[0m [befd1149]send state message COMPLETED
+[36m2018-07-24 06:43:45.963 UTC [chaincode] processStream -> DEBU 114[0m [befd1149]Received message COMPLETED from shim
+[36m2018-07-24 06:43:45.963 UTC [chaincode] handleMessage -> DEBU 115[0m [befd1149]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+[36m2018-07-24 06:43:45.963 UTC [chaincode] handleMessage -> DEBU 116[0m [befd1149-cc76-4d2d-949c-daaa4a8869ae]HandleMessage- COMPLETED. Notify
+[36m2018-07-24 06:43:45.963 UTC [chaincode] notify -> DEBU 117[0m notifying Txid:befd1149-cc76-4d2d-949c-daaa4a8869ae, channelID:
+[36m2018-07-24 06:43:45.963 UTC [chaincode] Execute -> DEBU 118[0m Exit
+2018-07-24 06:43:45.963 UTC [sccapi] deploySysCC -> INFO 119[0m system chaincode lscc/(github.com/hyperledger/fabric/core/scc/lscc) deployed
+[36m2018-07-24 06:43:45.963 UTC [ccprovider] NewCCContext -> DEBU 11a[0m NewCCCC (chain=,chaincode=escc,version=1.1.0,txid=d4c659a4-4cf8-427a-85bf-2807bf72f9f8,syscc=true,proposal=0x0,canname=escc:1.1.0
+[36m2018-07-24 06:43:45.963 UTC [chaincode] launchAndWaitForRegister -> DEBU 11b[0m chaincode escc:1.1.0 is being launched
+[36m2018-07-24 06:43:45.964 UTC [chaincode] getLaunchConfigs -> DEBU 11c[0m Executable is chaincode
+[36m2018-07-24 06:43:45.964 UTC [chaincode] getLaunchConfigs -> DEBU 11d[0m Args [chaincode -peer.address=peer2-org2:7052]
+[36m2018-07-24 06:43:45.964 UTC [chaincode] getLaunchConfigs -> DEBU 11e[0m Envs [CORE_CHAINCODE_ID_NAME=escc:1.1.0 CORE_PEER_TLS_ENABLED=true CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt CORE_CHAINCODE_LOGGING_LEVEL=info CORE_CHAINCODE_LOGGING_SHIM=warning CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}]
+[36m2018-07-24 06:43:45.964 UTC [chaincode] getLaunchConfigs -> DEBU 11f[0m FilesToUpload [/etc/hyperledger/fabric/client.key /etc/hyperledger/fabric/client.crt /etc/hyperledger/fabric/peer.crt]
+[36m2018-07-24 06:43:45.964 UTC [chaincode] launch -> DEBU 120[0m start container: escc:1.1.0(networkid:dev,peerid:peer2-org2)
+[36m2018-07-24 06:43:45.964 UTC [chaincode] launch -> DEBU 121[0m start container with args: chaincode -peer.address=peer2-org2:7052
+[36m2018-07-24 06:43:45.964 UTC [chaincode] launch -> DEBU 122[0m start container with env:
+	CORE_CHAINCODE_ID_NAME=escc:1.1.0
+	CORE_PEER_TLS_ENABLED=true
+	CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key
+	CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt
+	CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt
+	CORE_CHAINCODE_LOGGING_LEVEL=info
+	CORE_CHAINCODE_LOGGING_SHIM=warning
+	CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}
+[36m2018-07-24 06:43:45.964 UTC [container] lockContainer -> DEBU 123[0m waiting for container(escc-1.1.0) lock
+[36m2018-07-24 06:43:45.964 UTC [container] lockContainer -> DEBU 124[0m got container (escc-1.1.0) lock
+[36m2018-07-24 06:43:45.964 UTC [inproccontroller] getInstance -> DEBU 125[0m chaincode instance created for escc-1.1.0
+[36m2018-07-24 06:43:45.964 UTC [container] unlockContainer -> DEBU 126[0m container lock deleted(escc-1.1.0)
+[36m2018-07-24 06:43:45.964 UTC [inproccontroller] func2 -> DEBU 127[0m chaincode-support started for  escc-1.1.0
+[36m2018-07-24 06:43:45.964 UTC [chaincode] HandleChaincodeStream -> DEBU 128[0m Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+[36m2018-07-24 06:43:45.964 UTC [inproccontroller] func1 -> DEBU 129[0m chaincode started for escc-1.1.0
+[36m2018-07-24 06:43:45.964 UTC [shim] StartInProc -> DEBU 12a[0m in proc [chaincode -peer.address=peer2-org2:7052]
+[36m2018-07-24 06:43:45.964 UTC [shim] StartInProc -> DEBU 12b[0m starting chat with peer using name=escc:1.1.0
+[36m2018-07-24 06:43:45.964 UTC [shim] chatWithPeer -> DEBU 12c[0m Registering.. sending REGISTER
+[36m2018-07-24 06:43:45.964 UTC [chaincode] processStream -> DEBU 12d[0m []Received message REGISTER from shim
+[36m2018-07-24 06:43:45.964 UTC [chaincode] handleMessage -> DEBU 12e[0m []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+[36m2018-07-24 06:43:45.964 UTC [chaincode] beforeRegisterEvent -> DEBU 12f[0m Received REGISTER in state created
+[36m2018-07-24 06:43:45.964 UTC [chaincode] registerHandler -> DEBU 130[0m registered handler complete for chaincode escc:1.1.0
+[36m2018-07-24 06:43:45.964 UTC [chaincode] beforeRegisterEvent -> DEBU 131[0m Got REGISTER for chaincodeID = name:"escc:1.1.0" , sending back REGISTERED
+[36m2018-07-24 06:43:45.964 UTC [chaincode] notifyDuringStartup -> DEBU 132[0m Notifying during startup
+[36m2018-07-24 06:43:45.964 UTC [shim] func1 -> DEBU 133[0m []Received message REGISTERED from shim
+[36m2018-07-24 06:43:45.964 UTC [shim] handleMessage -> DEBU 134[0m []Handling ChaincodeMessage of type: REGISTERED(state:created)
+[36m2018-07-24 06:43:45.964 UTC [shim] beforeRegistered -> DEBU 135[0m Received REGISTERED, ready for invocations
+[36m2018-07-24 06:43:45.964 UTC [chaincode] func1 -> DEBU 136[0m chaincode escc:1.1.0 launch seq completed
+[36m2018-07-24 06:43:45.964 UTC [chaincode] ready -> DEBU 137[0m sending READY
+[36m2018-07-24 06:43:45.964 UTC [chaincode] setChaincodeProposal -> DEBU 138[0m Setting chaincode proposal context...
+[36m2018-07-24 06:43:45.964 UTC [chaincode] processStream -> DEBU 139[0m [d4c659a4]Move state message READY
+[36m2018-07-24 06:43:45.964 UTC [chaincode] handleMessage -> DEBU 13a[0m [d4c659a4]Fabric side Handling ChaincodeMessage of type: READY in state established
+[36m2018-07-24 06:43:45.964 UTC [chaincode] enterReadyState -> DEBU 13b[0m [d4c659a4]Entered state ready
+[36m2018-07-24 06:43:45.964 UTC [chaincode] notify -> DEBU 13c[0m notifying Txid:d4c659a4-4cf8-427a-85bf-2807bf72f9f8, channelID:
+[36m2018-07-24 06:43:45.964 UTC [chaincode] processStream -> DEBU 13d[0m [d4c659a4]sending state message READY
+[36m2018-07-24 06:43:45.964 UTC [shim] func1 -> DEBU 13e[0m [d4c659a4]Received message READY from shim
+[36m2018-07-24 06:43:45.964 UTC [shim] handleMessage -> DEBU 13f[0m [d4c659a4]Handling ChaincodeMessage of type: READY(state:established)
+[36m2018-07-24 06:43:45.964 UTC [chaincode] Launch -> DEBU 140[0m sending init completed
+[36m2018-07-24 06:43:45.964 UTC [chaincode] Launch -> DEBU 141[0m LaunchChaincode complete
+[36m2018-07-24 06:43:45.964 UTC [chaincode] Execute -> DEBU 142[0m Entry
+[36m2018-07-24 06:43:45.964 UTC [chaincode] Execute -> DEBU 143[0m chaincode canonical name: escc:1.1.0
+[36m2018-07-24 06:43:45.964 UTC [chaincode] sendExecuteMessage -> DEBU 144[0m [d4c659a4]Inside sendExecuteMessage. Message INIT
+[36m2018-07-24 06:43:45.964 UTC [chaincode] setChaincodeProposal -> DEBU 145[0m Setting chaincode proposal context...
+[36m2018-07-24 06:43:45.964 UTC [chaincode] sendExecuteMessage -> DEBU 146[0m [d4c659a4]sendExecuteMsg trigger event INIT
+[36m2018-07-24 06:43:45.964 UTC [chaincode] processStream -> DEBU 147[0m [d4c659a4]Move state message INIT
+[36m2018-07-24 06:43:45.964 UTC [chaincode] handleMessage -> DEBU 148[0m [d4c659a4]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+[36m2018-07-24 06:43:45.964 UTC [chaincode] filterError -> DEBU 149[0m Ignoring NoTransitionError: no transition
+[36m2018-07-24 06:43:45.964 UTC [chaincode] processStream -> DEBU 14a[0m [d4c659a4]sending state message INIT
+[36m2018-07-24 06:43:45.964 UTC [shim] func1 -> DEBU 14b[0m [d4c659a4]Received message INIT from shim
+[36m2018-07-24 06:43:45.964 UTC [shim] handleMessage -> DEBU 14c[0m [d4c659a4]Handling ChaincodeMessage of type: INIT(state:ready)
+[36m2018-07-24 06:43:45.964 UTC [shim] beforeInit -> DEBU 14d[0m Entered state ready
+[36m2018-07-24 06:43:45.964 UTC [shim] beforeInit -> DEBU 14e[0m [d4c659a4]Received INIT, initializing chaincode
+2018-07-24 06:43:45.964 UTC [escc] Init -> INFO 14f[0m Successfully initialized ESCC
+[36m2018-07-24 06:43:45.964 UTC [shim] func1 -> DEBU 150[0m [d4c659a4]Init get response status: 200
+[36m2018-07-24 06:43:45.964 UTC [shim] func1 -> DEBU 151[0m [d4c659a4]Init succeeded. Sending COMPLETED
+[36m2018-07-24 06:43:45.964 UTC [shim] func1 -> DEBU 152[0m [d4c659a4]Move state message COMPLETED
+[36m2018-07-24 06:43:45.964 UTC [shim] handleMessage -> DEBU 153[0m [d4c659a4]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+[36m2018-07-24 06:43:45.964 UTC [shim] func1 -> DEBU 154[0m [d4c659a4]send state message COMPLETED
+[36m2018-07-24 06:43:45.964 UTC [chaincode] processStream -> DEBU 155[0m [d4c659a4]Received message COMPLETED from shim
+[36m2018-07-24 06:43:45.965 UTC [chaincode] handleMessage -> DEBU 156[0m [d4c659a4]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+[36m2018-07-24 06:43:45.965 UTC [chaincode] handleMessage -> DEBU 157[0m [d4c659a4-4cf8-427a-85bf-2807bf72f9f8]HandleMessage- COMPLETED. Notify
+[36m2018-07-24 06:43:45.965 UTC [chaincode] notify -> DEBU 158[0m notifying Txid:d4c659a4-4cf8-427a-85bf-2807bf72f9f8, channelID:
+[36m2018-07-24 06:43:45.965 UTC [chaincode] Execute -> DEBU 159[0m Exit
+2018-07-24 06:43:45.965 UTC [sccapi] deploySysCC -> INFO 15a[0m system chaincode escc/(github.com/hyperledger/fabric/core/scc/escc) deployed
+[36m2018-07-24 06:43:45.965 UTC [ccprovider] NewCCContext -> DEBU 15b[0m NewCCCC (chain=,chaincode=vscc,version=1.1.0,txid=4b0396e2-c3a6-48b9-b219-300ddef48f77,syscc=true,proposal=0x0,canname=vscc:1.1.0
+[36m2018-07-24 06:43:45.965 UTC [chaincode] launchAndWaitForRegister -> DEBU 15c[0m chaincode vscc:1.1.0 is being launched
+[36m2018-07-24 06:43:45.965 UTC [chaincode] getLaunchConfigs -> DEBU 15d[0m Executable is chaincode
+[36m2018-07-24 06:43:45.965 UTC [chaincode] getLaunchConfigs -> DEBU 15e[0m Args [chaincode -peer.address=peer2-org2:7052]
+[36m2018-07-24 06:43:45.965 UTC [chaincode] getLaunchConfigs -> DEBU 15f[0m Envs [CORE_CHAINCODE_ID_NAME=vscc:1.1.0 CORE_PEER_TLS_ENABLED=true CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt CORE_CHAINCODE_LOGGING_LEVEL=info CORE_CHAINCODE_LOGGING_SHIM=warning CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}]
+[36m2018-07-24 06:43:45.965 UTC [chaincode] getLaunchConfigs -> DEBU 160[0m FilesToUpload [/etc/hyperledger/fabric/client.key /etc/hyperledger/fabric/client.crt /etc/hyperledger/fabric/peer.crt]
+[36m2018-07-24 06:43:45.965 UTC [chaincode] launch -> DEBU 161[0m start container: vscc:1.1.0(networkid:dev,peerid:peer2-org2)
+[36m2018-07-24 06:43:45.965 UTC [chaincode] launch -> DEBU 162[0m start container with args: chaincode -peer.address=peer2-org2:7052
+[36m2018-07-24 06:43:45.965 UTC [chaincode] launch -> DEBU 163[0m start container with env:
+	CORE_CHAINCODE_ID_NAME=vscc:1.1.0
+	CORE_PEER_TLS_ENABLED=true
+	CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key
+	CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt
+	CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt
+	CORE_CHAINCODE_LOGGING_LEVEL=info
+	CORE_CHAINCODE_LOGGING_SHIM=warning
+	CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}
+[36m2018-07-24 06:43:45.965 UTC [container] lockContainer -> DEBU 164[0m waiting for container(vscc-1.1.0) lock
+[36m2018-07-24 06:43:45.965 UTC [container] lockContainer -> DEBU 165[0m got container (vscc-1.1.0) lock
+[36m2018-07-24 06:43:45.965 UTC [inproccontroller] getInstance -> DEBU 166[0m chaincode instance created for vscc-1.1.0
+[36m2018-07-24 06:43:45.965 UTC [container] unlockContainer -> DEBU 167[0m container lock deleted(vscc-1.1.0)
+[36m2018-07-24 06:43:45.966 UTC [inproccontroller] func2 -> DEBU 168[0m chaincode-support started for  vscc-1.1.0
+[36m2018-07-24 06:43:45.966 UTC [chaincode] HandleChaincodeStream -> DEBU 169[0m Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+[36m2018-07-24 06:43:45.966 UTC [gossip/comm] func1 -> DEBU 16a[0m Got message: GossipMessage: Channel: , nonce: 2645365580345099926, tag: EMPTY MembershipResponse with Alive: 2, Dead: 0, Envelope: 2519 bytes, Signature: 0 bytes
+[36m2018-07-24 06:43:45.966 UTC [gossip/gossip] handleMessage -> DEBU 16c[0m Entering, 172.26.0.13:7051 [50 201 45 1 81 207 134 183 218 113 95 201 203 179 231 139 38 177 5 13 85 185 143 232 217 67 160 155 10 70 220 86] sent us GossipMessage: Channel: , nonce: 2645365580345099926, tag: EMPTY MembershipResponse with Alive: 2, Dead: 0, Envelope: 2519 bytes, Signature: 0 bytes
+[36m2018-07-24 06:43:45.966 UTC [gossip/gossip] handleMessage -> DEBU 16d[0m Exiting
+[36m2018-07-24 06:43:45.966 UTC [gossip/discovery] handleMsgFromComm -> DEBU 16e[0m Got message: GossipMessage: Channel: , nonce: 2645365580345099926, tag: EMPTY MembershipResponse with Alive: 2, Dead: 0, Envelope: 2519 bytes, Signature: 0 bytes
+[36m2018-07-24 06:43:45.966 UTC [gossip/discovery] handleAliveMessage -> DEBU 16f[0m Entering GossipMessage: tag:EMPTY alive_msg:<membership:<endpoint:"peer2-org2:7051" pki_id:"fk9\"\n\024q\265&\271\350\"\351\244\361g\326O\377\035\013\r\272\3467\353\335\3769\310kZ" > timestamp:<inc_num:1532414625930444887 seq_num:2 > identity:"\n\007org2MSP\022\341\007-----BEGIN CERTIFICATE-----\nMIICsTCCAlegAwIBAgIUGrLzFJKQ4n1T9CUFY7kBB8GLT4UwCgYIKoZIzj0EAwIw\nZjELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGY2xpZW50MRcwFQYDVQQDEw5yY2Etb3Jn\nMi1hZG1pbjAeFw0xODA3MjQwNjM5MDBaFw0xOTA3MjQwNjQ0MDBaMG0xCzAJBgNV\nBAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJs\nZWRnZXIxGjALBgNVBAsTBHBlZXIwCwYDVQQLEwRvcmcxMRMwEQYDVQQDEwpwZWVy\nMi1vcmcyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEA042YV3hSSK4wyGGvniG\nYJEblZyimWr3KY5ttGR7Zqq2x82bo6bJEU+gfjG//dORrs8FkjkBTtETKRfmDe1N\nN6OB2zCB2DAOBgNVHQ8BAf8EBAMCB4AwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU\n/cZHfEExmo/dYd/TvMEe4pCd3QQwHwYDVR0jBBgwFoAUgii3qW8CCNeQ8N8/p8zJ\npp+RI0swFwYDVR0RBBAwDoIMZDQzY2RlMzEyYjMwMF8GCCoDBAUGBwgBBFN7ImF0\ndHJzIjp7ImhmLkFmZmlsaWF0aW9uIjoib3JnMSIsImhmLkVucm9sbG1lbnRJRCI6\nInBlZXIyLW9yZzIiLCJoZi5UeXBlIjoicGVlciJ9fTAKBggqhkjOPQQDAgNIADBF\nAiEA4Q6C3SYnOeO3R5KKj6WrunmNE20u4TvUIUwrFECLlWICIBtnP7iKvu1ykMS3\n4pAEyRi4oCOMLfUMgWlSwN7nSU2f\n-----END CERTIFICATE-----\n" > , Envelope: 1080 bytes, Signature: 70 bytes Secret payload: 17 bytes, Secret Signature: 71 bytes
+[36m2018-07-24 06:43:45.966 UTC [msp] GetLocalMSP -> DEBU 170[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.966 UTC [msp] GetLocalMSP -> DEBU 171[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.966 UTC [msp] Validate -> DEBU 172[0m MSP org2MSP validating identity
+[36m2018-07-24 06:43:45.967 UTC [msp] GetLocalMSP -> DEBU 173[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.967 UTC [msp] GetLocalMSP -> DEBU 174[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.967 UTC [msp] Validate -> DEBU 175[0m MSP org2MSP validating identity
+[36m2018-07-24 06:43:45.967 UTC [msp] GetLocalMSP -> DEBU 176[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.967 UTC [msp] GetLocalMSP -> DEBU 177[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.967 UTC [msp] Validate -> DEBU 178[0m MSP org2MSP validating identity
+[36m2018-07-24 06:43:45.967 UTC [msp/identity] Verify -> DEBU 179[0m Verify: digest = 00000000  b4 e3 3e 70 12 d5 31 e3  09 36 86 d5 da 74 00 57  |..>p..1..6...t.W|
+00000010  af a2 e2 30 24 72 57 b4  4c 5d ee 91 6e 25 62 40  |...0$rW.L]..n%b@|
+[36m2018-07-24 06:43:45.967 UTC [msp/identity] Verify -> DEBU 17a[0m Verify: sig = 00000000  30 44 02 20 28 26 f7 51  32 d4 0c d3 f4 f6 3e 35  |0D. (&.Q2.....>5|
+00000010  eb 41 b7 80 ff fe 0d d8  a8 ca e5 d4 d0 62 d2 12  |.A...........b..|
+00000020  1d 0b 89 df 02 20 14 8c  da 9e e2 76 31 39 91 62  |..... .....v19.b|
+00000030  7b 43 7a 2f 40 43 8e 52  b4 c0 47 49 ba bf ee d0  |{Cz/@C.R..GI....|
+00000040  51 5e b0 38 8f 9e                                 |Q^.8..|
+[36m2018-07-24 06:43:45.967 UTC [msp] GetLocalMSP -> DEBU 17b[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.968 UTC [msp] GetLocalMSP -> DEBU 17c[0m Returning existing local MSP
+[36m2018-07-24 06:43:45.968 UTC [msp] Validate -> DEBU 17d[0m MSP org2MSP validating identity
+[36m2018-07-24 06:43:45.966 UTC [inproccontroller] func1 -> DEBU 16b[0m chaincode started for vscc-1.1.0
+[36m2018-07-24 06:43:45.968 UTC [shim] StartInProc -> DEBU 17e[0m in proc [chaincode -peer.address=peer2-org2:7052]
+[36m2018-07-24 06:43:45.968 UTC [shim] StartInProc -> DEBU 17f[0m starting chat with peer using name=vscc:1.1.0
+[36m2018-07-24 06:43:45.968 UTC [shim] chatWithPeer -> DEBU 180[0m Registering.. sending REGISTER
+[36m2018-07-24 06:43:45.968 UTC [chaincode] processStream -> DEBU 181[0m []Received message REGISTER from shim
+[36m2018-07-24 06:43:45.968 UTC [chaincode] handleMessage -> DEBU 182[0m []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+[36m2018-07-24 06:43:45.968 UTC [chaincode] beforeRegisterEvent -> DEBU 183[0m Received REGISTER in state created
+[36m2018-07-24 06:43:45.968 UTC [chaincode] registerHandler -> DEBU 184[0m registered handler complete for chaincode vscc:1.1.0
+[36m2018-07-24 06:43:45.968 UTC [chaincode] beforeRegisterEvent -> DEBU 185[0m Got REGISTER for chaincodeID = name:"vscc:1.1.0" , sending back REGISTERED
+[36m2018-07-24 06:43:45.968 UTC [chaincode] notifyDuringStartup -> DEBU 186[0m Notifying during startup
+[36m2018-07-24 06:43:45.968 UTC [shim] func1 -> DEBU 187[0m []Received message REGISTERED from shim
+[36m2018-07-24 06:43:45.968 UTC [shim] handleMessage -> DEBU 188[0m []Handling ChaincodeMessage of type: REGISTERED(state:created)
+[36m2018-07-24 06:43:45.968 UTC [shim] beforeRegistered -> DEBU 189[0m Received REGISTERED, ready for invocations
+[36m2018-07-24 06:43:45.968 UTC [chaincode] func1 -> DEBU 18a[0m chaincode vscc:1.1.0 launch seq completed
+[36m2018-07-24 06:43:45.968 UTC [chaincode] ready -> DEBU 18b[0m sending READY
+[36m2018-07-24 06:43:45.968 UTC [chaincode] setChaincodeProposal -> DEBU 18c[0m Setting chaincode proposal context...
+[36m2018-07-24 06:43:45.968 UTC [chaincode] processStream -> DEBU 18d[0m [4b0396e2]Move state message READY
+[36m2018-07-24 06:43:45.968 UTC [chaincode] handleMessage -> DEBU 18e[0m [4b0396e2]Fabric side Handling ChaincodeMessage of type: READY in state established
+[36m2018-07-24 06:43:45.968 UTC [chaincode] enterReadyState -> DEBU 18f[0m [4b0396e2]Entered state ready
+[36m2018-07-24 06:43:45.968 UTC [chaincode] notify -> DEBU 190[0m notifying Txid:4b0396e2-c3a6-48b9-b219-300ddef48f77, channelID:
+[36m2018-07-24 06:43:45.968 UTC [chaincode] processStream -> DEBU 191[0m [4b0396e2]sending state message READY
+[36m2018-07-24 06:43:45.968 UTC [shim] func1 -> DEBU 192[0m [4b0396e2]Received message READY from shim
+[36m2018-07-24 06:43:45.968 UTC [shim] handleMessage -> DEBU 193[0m [4b0396e2]Handling ChaincodeMessage of type: READY(state:established)
+[36m2018-07-24 06:43:45.968 UTC [chaincode] Launch -> DEBU 194[0m sending init completed
+[36m2018-07-24 06:43:45.968 UTC [chaincode] Launch -> DEBU 195[0m LaunchChaincode complete
+[36m2018-07-24 06:43:45.968 UTC [chaincode] Execute -> DEBU 196[0m Entry
+[36m2018-07-24 06:43:45.968 UTC [chaincode] Execute -> DEBU 197[0m chaincode canonical name: vscc:1.1.0
+[36m2018-07-24 06:43:45.968 UTC [chaincode] sendExecuteMessage -> DEBU 198[0m [4b0396e2]Inside sendExecuteMessage. Message INIT
+[36m2018-07-24 06:43:45.968 UTC [chaincode] setChaincodeProposal -> DEBU 199[0m Setting chaincode proposal context...
+[36m2018-07-24 06:43:45.968 UTC [chaincode] sendExecuteMessage -> DEBU 19a[0m [4b0396e2]sendExecuteMsg trigger event INIT
+[36m2018-07-24 06:43:45.968 UTC [chaincode] processStream -> DEBU 19b[0m [4b0396e2]Move state message INIT
+[36m2018-07-24 06:43:45.968 UTC [chaincode] handleMessage -> DEBU 19c[0m [4b0396e2]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+[36m2018-07-24 06:43:45.968 UTC [chaincode] filterError -> DEBU 19d[0m Ignoring NoTransitionError: no transition
+[36m2018-07-24 06:43:45.968 UTC [chaincode] processStream -> DEBU 19e[0m [4b0396e2]sending state message INIT
+[36m2018-07-24 06:43:45.968 UTC [shim] func1 -> DEBU 19f[0m [4b0396e2]Received message INIT from shim
+[36m2018-07-24 06:43:45.968 UTC [shim] handleMessage -> DEBU 1a0[0m [4b0396e2]Handling ChaincodeMessage of type: INIT(state:ready)
+[36m2018-07-24 06:43:45.968 UTC [shim] beforeInit -> DEBU 1a1[0m Entered state ready
+[36m2018-07-24 06:43:45.968 UTC [shim] beforeInit -> DEBU 1a2[0m [4b0396e2]Received INIT, initializing chaincode
+[36m2018-07-24 06:43:45.968 UTC [shim] func1 -> DEBU 1a3[0m [4b0396e2]Init get response status: 200
+[36m2018-07-24 06:43:45.968 UTC [shim] func1 -> DEBU 1a4[0m [4b0396e2]Init succeeded. Sending COMPLETED
+[36m2018-07-24 06:43:45.968 UTC [shim] func1 -> DEBU 1a5[0m [4b0396e2]Move state message COMPLETED
+[36m2018-07-24 06:43:45.968 UTC [shim] handleMessage -> DEBU 1a6[0m [4b0396e2]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+[36m2018-07-24 06:43:45.968 UTC [shim] func1 -> DEBU 1a7[0m [4b0396e2]send state message COMPLETED
+[36m2018-07-24 06:43:45.968 UTC [chaincode] processStream -> DEBU 1a8[0m [4b0396e2]Received message COMPLETED from shim
+[36m2018-07-24 06:43:45.968 UTC [chaincode] handleMessage -> DEBU 1a9[0m [4b0396e2]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+[36m2018-07-24 06:43:45.968 UTC [chaincode] handleMessage -> DEBU 1aa[0m [4b0396e2-c3a6-48b9-b219-300ddef48f77]HandleMessage- COMPLETED. Notify
+[36m2018-07-24 06:43:45.968 UTC [chaincode] notify -> DEBU 1ab[0m notifying Txid:4b0396e2-c3a6-48b9-b219-300ddef48f77, channelID:
+[36m2018-07-24 06:43:45.968 UTC [chaincode] Execute -> DEBU 1ac[0m Exit
+2018-07-24 06:43:45.968 UTC [sccapi] deploySysCC -> INFO 1ad[0m system chaincode vscc/(github.com/hyperledger/fabric/core/scc/vscc) deployed
+[36m2018-07-24 06:43:45.968 UTC [ccprovider] NewCCContext -> DEBU 1ae[0m NewCCCC (chain=,chaincode=qscc,version=1.1.0,txid=875cd9e5-cdfc-451e-b07b-db94c2d6c2c5,syscc=true,proposal=0x0,canname=qscc:1.1.0
+[36m2018-07-24 06:43:45.968 UTC [chaincode] launchAndWaitForRegister -> DEBU 1af[0m chaincode qscc:1.1.0 is being launched
+[36m2018-07-24 06:43:45.969 UTC [chaincode] getLaunchConfigs -> DEBU 1b0[0m Executable is chaincode
+[36m2018-07-24 06:43:45.969 UTC [chaincode] getLaunchConfigs -> DEBU 1b1[0m Args [chaincode -peer.address=peer2-org2:7052]
+[36m2018-07-24 06:43:45.969 UTC [chaincode] getLaunchConfigs -> DEBU 1b2[0m Envs [CORE_CHAINCODE_ID_NAME=qscc:1.1.0 CORE_PEER_TLS_ENABLED=true CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt CORE_CHAINCODE_LOGGING_LEVEL=info CORE_CHAINCODE_LOGGING_SHIM=warning CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}]
+[36m2018-07-24 06:43:45.969 UTC [chaincode] getLaunchConfigs -> DEBU 1b3[0m FilesToUpload [/etc/hyperledger/fabric/client.crt /etc/hyperledger/fabric/peer.crt /etc/hyperledger/fabric/client.key]
+[36m2018-07-24 06:43:45.969 UTC [chaincode] launch -> DEBU 1b4[0m start container: qscc:1.1.0(networkid:dev,peerid:peer2-org2)
+[36m2018-07-24 06:43:45.969 UTC [chaincode] launch -> DEBU 1b5[0m start container with args: chaincode -peer.address=peer2-org2:7052
+[36m2018-07-24 06:43:45.969 UTC [chaincode] launch -> DEBU 1b6[0m start container with env:
+	CORE_CHAINCODE_ID_NAME=qscc:1.1.0
+	CORE_PEER_TLS_ENABLED=true
+	CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key
+	CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt
+	CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt
+	CORE_CHAINCODE_LOGGING_LEVEL=info
+	CORE_CHAINCODE_LOGGING_SHIM=warning
+	CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}
+[36m2018-07-24 06:43:45.969 UTC [container] lockContainer -> DEBU 1b7[0m waiting for container(qscc-1.1.0) lock
+[36m2018-07-24 06:43:45.969 UTC [container] lockContainer -> DEBU 1b8[0m got container (qscc-1.1.0) lock
+[36m2018-07-24 06:43:45.969 UTC [inproccontroller] getInstance -> DEBU 1b9[0m chaincode instance created for qscc-1.1.0
+[36m2018-07-24 06:43:45.969 UTC [container] unlockContainer -> DEBU 1ba[0m container lock deleted(qscc-1.1.0)
+[36m2018-07-24 06:43:45.969 UTC [inproccontroller] func2 -> DEBU 1bb[0m chaincode-support started for  qscc-1.1.0
+[36m2018-07-24 06:43:45.969 UTC [chaincode] HandleChaincodeStream -> DEBU 1bc[0m Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+[36m2018-07-24 06:43:45.969 UTC [inproccontroller] func1 -> DEBU 1bd[0m chaincode started for qscc-1.1.0
+[36m2018-07-24 06:43:45.969 UTC [shim] StartInProc -> DEBU 1be[0m in proc [chaincode -peer.address=peer2-org2:7052]
+[36m2018-07-24 06:43:45.969 UTC [shim] StartInProc -> DEBU 1bf[0m starting chat with peer using name=qscc:1.1.0
+[36m2018-07-24 06:43:45.969 UTC [shim] chatWithPeer -> DEBU 1c0[0m Registering.. sending REGISTER
+[36m2018-07-24 06:43:45.969 UTC [chaincode] processStream -> DEBU 1c1[0m []Received message REGISTER from shim
+[36m2018-07-24 06:43:45.969 UTC [chaincode] handleMessage -> DEBU 1c2[0m []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+[36m2018-07-24 06:43:45.969 UTC [chaincode] beforeRegisterEvent -> DEBU 1c3[0m Received REGISTER in state created
+[36m2018-07-24 06:43:45.969 UTC [chaincode] registerHandler -> DEBU 1c4[0m registered handler complete for chaincode qscc:1.1.0
+[36m2018-07-24 06:43:45.969 UTC [chaincode] beforeRegisterEvent -> DEBU 1c5[0m Got REGISTER for chaincodeID = name:"qscc:1.1.0" , sending back REGISTERED
+[36m2018-07-24 06:43:45.969 UTC [chaincode] notifyDuringStartup -> DEBU 1c6[0m Notifying during startup
+[36m2018-07-24 06:43:45.969 UTC [shim] func1 -> DEBU 1c7[0m []Received message REGISTERED from shim
+[36m2018-07-24 06:43:45.969 UTC [shim] handleMessage -> DEBU 1c8[0m []Handling ChaincodeMessage of type: REGISTERED(state:created)
+[36m2018-07-24 06:43:45.969 UTC [shim] beforeRegistered -> DEBU 1c9[0m Received REGISTERED, ready for invocations
+[36m2018-07-24 06:43:45.969 UTC [chaincode] func1 -> DEBU 1ca[0m chaincode qscc:1.1.0 launch seq completed
+[36m2018-07-24 06:43:45.969 UTC [chaincode] ready -> DEBU 1cb[0m sending READY
+[36m2018-07-24 06:43:45.969 UTC [chaincode] setChaincodeProposal -> DEBU 1cc[0m Setting chaincode proposal context...
+[36m2018-07-24 06:43:45.969 UTC [chaincode] processStream -> DEBU 1cd[0m [875cd9e5]Move state message READY
+[36m2018-07-24 06:43:45.969 UTC [chaincode] handleMessage -> DEBU 1ce[0m [875cd9e5]Fabric side Handling ChaincodeMessage of type: READY in state established
+[36m2018-07-24 06:43:45.969 UTC [chaincode] enterReadyState -> DEBU 1cf[0m [875cd9e5]Entered state ready
+[36m2018-07-24 06:43:45.969 UTC [chaincode] notify -> DEBU 1d0[0m notifying Txid:875cd9e5-cdfc-451e-b07b-db94c2d6c2c5, channelID:
+[36m2018-07-24 06:43:45.969 UTC [chaincode] processStream -> DEBU 1d1[0m [875cd9e5]sending state message READY
+[36m2018-07-24 06:43:45.969 UTC [shim] func1 -> DEBU 1d2[0m [875cd9e5]Received message READY from shim
+[36m2018-07-24 06:43:45.969 UTC [shim] handleMessage -> DEBU 1d3[0m [875cd9e5]Handling ChaincodeMessage of type: READY(state:established)
+[36m2018-07-24 06:43:45.969 UTC [chaincode] Launch -> DEBU 1d4[0m sending init completed
+[36m2018-07-24 06:43:45.969 UTC [chaincode] Launch -> DEBU 1d5[0m LaunchChaincode complete
+[36m2018-07-24 06:43:45.969 UTC [chaincode] Execute -> DEBU 1d6[0m Entry
+[36m2018-07-24 06:43:45.969 UTC [chaincode] Execute -> DEBU 1d7[0m chaincode canonical name: qscc:1.1.0
+[36m2018-07-24 06:43:45.969 UTC [chaincode] sendExecuteMessage -> DEBU 1d8[0m [875cd9e5]Inside sendExecuteMessage. Message INIT
+[36m2018-07-24 06:43:45.969 UTC [chaincode] setChaincodeProposal -> DEBU 1d9[0m Setting chaincode proposal context...
+[36m2018-07-24 06:43:45.969 UTC [chaincode] sendExecuteMessage -> DEBU 1da[0m [875cd9e5]sendExecuteMsg trigger event INIT
+[36m2018-07-24 06:43:45.969 UTC [chaincode] processStream -> DEBU 1db[0m [875cd9e5]Move state message INIT
+[36m2018-07-24 06:43:45.969 UTC [chaincode] handleMessage -> DEBU 1dc[0m [875cd9e5]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+[36m2018-07-24 06:43:45.969 UTC [chaincode] filterError -> DEBU 1dd[0m Ignoring NoTransitionError: no transition
+[36m2018-07-24 06:43:45.969 UTC [chaincode] processStream -> DEBU 1de[0m [875cd9e5]sending state message INIT
+[36m2018-07-24 06:43:45.969 UTC [shim] func1 -> DEBU 1df[0m [875cd9e5]Received message INIT from shim
+[36m2018-07-24 06:43:45.969 UTC [shim] handleMessage -> DEBU 1e0[0m [875cd9e5]Handling ChaincodeMessage of type: INIT(state:ready)
+[36m2018-07-24 06:43:45.969 UTC [shim] beforeInit -> DEBU 1e1[0m Entered state ready
+[36m2018-07-24 06:43:45.969 UTC [shim] beforeInit -> DEBU 1e2[0m [875cd9e5]Received INIT, initializing chaincode
+2018-07-24 06:43:45.969 UTC [qscc] Init -> INFO 1e3[0m Init QSCC
+[36m2018-07-24 06:43:45.969 UTC [shim] func1 -> DEBU 1e4[0m [875cd9e5]Init get response status: 200
+[36m2018-07-24 06:43:45.969 UTC [shim] func1 -> DEBU 1e5[0m [875cd9e5]Init succeeded. Sending COMPLETED
+[36m2018-07-24 06:43:45.969 UTC [shim] func1 -> DEBU 1e6[0m [875cd9e5]Move state message COMPLETED
+[36m2018-07-24 06:43:45.969 UTC [shim] handleMessage -> DEBU 1e7[0m [875cd9e5]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+[36m2018-07-24 06:43:45.969 UTC [shim] func1 -> DEBU 1e8[0m [875cd9e5]send state message COMPLETED
+[36m2018-07-24 06:43:45.969 UTC [chaincode] processStream -> DEBU 1e9[0m [875cd9e5]Received message COMPLETED from shim
+[36m2018-07-24 06:43:45.969 UTC [chaincode] handleMessage -> DEBU 1ea[0m [875cd9e5]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+[36m2018-07-24 06:43:45.969 UTC [chaincode] handleMessage -> DEBU 1eb[0m [875cd9e5-cdfc-451e-b07b-db94c2d6c2c5]HandleMessage- COMPLETED. Notify
+[36m2018-07-24 06:43:45.969 UTC [chaincode] notify -> DEBU 1ec[0m notifying Txid:875cd9e5-cdfc-451e-b07b-db94c2d6c2c5, channelID:
+[36m2018-07-24 06:43:45.969 UTC [chaincode] Execute -> DEBU 1ed[0m Exit
+2018-07-24 06:43:45.969 UTC [sccapi] deploySysCC -> INFO 1ee[0m system chaincode qscc/(github.com/hyperledger/fabric/core/chaincode/qscc) deployed
+2018-07-24 06:43:45.969 UTC [nodeCmd] initSysCCs -> INFO 1ef[0m Deployed system chaincodes
+2018-07-24 06:43:45.969 UTC [nodeCmd] serve -> INFO 1f0[0m Starting peer with ID=[name:"peer2-org2" ], network ID=[dev], address=[peer2-org2:7051]
+2018-07-24 06:43:45.970 UTC [nodeCmd] serve -> INFO 1f1[0m Started peer with ID=[name:"peer2-org2" ], network ID=[dev], address=[peer2-org2:7051]
+[36m2018-07-24 06:43:45.970 UTC [flogging] setModuleLevel -> DEBU 1f2[0m Module 'msp' logger enabled for log level 'WARNING'
+[36m2018-07-24 06:43:45.970 UTC [flogging] setModuleLevel -> DEBU 1f3[0m Module 'msp/identity' logger enabled for log level 'WARNING'
+[36m2018-07-24 06:43:45.970 UTC [flogging] setModuleLevel -> DEBU 1f4[0m Module 'gossip/election' logger enabled for log level 'WARNING'
+[36m2018-07-24 06:43:45.970 UTC [flogging] setModuleLevel -> DEBU 1f5[0m Module 'gossip/state' logger enabled for log level 'WARNING'
+[36m2018-07-24 06:43:45.970 UTC [flogging] setModuleLevel -> DEBU 1f6[0m Module 'gossip/service' logger enabled for log level 'WARNING'
+[36m2018-07-24 06:43:45.970 UTC [flogging] setModuleLevel -> DEBU 1f7[0m Module 'gossip/pull' logger enabled for log level 'WARNING'
+[36m2018-07-24 06:43:45.970 UTC [flogging] setModuleLevel -> DEBU 1f8[0m Module 'gossip/privdata' logger enabled for log level 'WARNING'
+[36m2018-07-24 06:43:45.970 UTC [flogging] setModuleLevel -> DEBU 1f9[0m Module 'gossip/comm' logger enabled for log level 'WARNING'
+[36m2018-07-24 06:43:45.970 UTC [flogging] setModuleLevel -> DEBU 1fa[0m Module 'gossip/discovery' logger enabled for log level 'WARNING'
+[36m2018-07-24 06:43:45.970 UTC [flogging] setModuleLevel -> DEBU 1fb[0m Module 'gossip/gossip' logger enabled for log level 'WARNING'
+[36m2018-07-24 06:43:45.970 UTC [flogging] setModuleLevel -> DEBU 1fc[0m Module 'ledgermgmt' logger enabled for log level 'INFO'
+[36m2018-07-24 06:43:45.970 UTC [flogging] setModuleLevel -> DEBU 1fd[0m Module 'cauthdsl' logger enabled for log level 'WARNING'
+[36m2018-07-24 06:43:45.970 UTC [flogging] setModuleLevel -> DEBU 1fe[0m Module 'policies' logger enabled for log level 'WARNING'
+[36m2018-07-24 06:43:45.970 UTC [flogging] setModuleLevel -> DEBU 1ff[0m Module 'grpc' logger enabled for log level 'ERROR'
+[36m2018-07-24 06:43:45.970 UTC [flogging] setModuleLevel -> DEBU 200[0m Module 'peer/gossip/mcs' logger enabled for log level 'WARNING'
+[36m2018-07-24 06:43:45.970 UTC [flogging] setModuleLevel -> DEBU 201[0m Module 'peer/gossip/sa' logger enabled for log level 'WARNING'

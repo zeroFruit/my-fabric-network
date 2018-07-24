@@ -15,6 +15,7 @@ Profiles:
       OrdererType: solo
       Addresses:
         - orderer1-org0:7050
+        - orderer2-org0:7050
 
       # Batch Timeout: The amount of time to wait before creating a batch
       BatchTimeout: 2s
@@ -50,12 +51,16 @@ Profiles:
       SampleConsortium:
 
         Organizations:
+          - *org1
+          - *org2
 
   OrgsChannel:
     Consortium: SampleConsortium
     Application:
       <<: *ApplicationDefaults
       Organizations:
+        - *org1
+        - *org2
 
 ################################################################################
 #
@@ -76,6 +81,40 @@ Organizations:
 
     # MSPDir is the filesystem path which contains the MSP configuration
     MSPDir: /data/orgs/org0/msp
+
+  - &org1
+
+    Name: org1
+
+    # ID to load the MSP definition as
+    ID: org1MSP
+
+    # MSPDir is the filesystem path which contains the MSP configuration
+    MSPDir: /data/orgs/org1/msp
+
+    AnchorPeers:
+       # AnchorPeers defines the location of peers which can be used
+       # for cross org gossip communication.  Note, this value is only
+       # encoded in the genesis block in the Application section context
+       - Host: peer1-org1
+         Port: 7051
+
+  - &org2
+
+    Name: org2
+
+    # ID to load the MSP definition as
+    ID: org2MSP
+
+    # MSPDir is the filesystem path which contains the MSP configuration
+    MSPDir: /data/orgs/org2/msp
+
+    AnchorPeers:
+       # AnchorPeers defines the location of peers which can be used
+       # for cross org gossip communication.  Note, this value is only
+       # encoded in the genesis block in the Application section context
+       - Host: peer1-org2
+         Port: 7051
 
 ################################################################################
 #
