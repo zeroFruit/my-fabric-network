@@ -66,7 +66,7 @@ function writeStartFabric {
       COUNT=1
       while [[ "$COUNT" -le $NUM_ORDERERS ]]; do
          initOrdererVars $ORG $COUNT
-         writeOrderer
+         writeOrderer $COUNT
          COUNT=$((COUNT+1))
       done
    done
@@ -170,6 +170,9 @@ function writeIntermediateCA {
 
 function writeOrderer {
    MYHOME=/etc/hyperledger/orderer
+   NUM=$1
+   let port="1000 * ($NUM - 1) + 7050"
+
    echo "  $ORDERER_NAME:
     container_name: $ORDERER_NAME
     image: hyperledger/fabric-ca-orderer
@@ -202,6 +205,8 @@ function writeOrderer {
       - $NETWORK
     depends_on:
       - setup
+    ports:
+      - $port:7050
 "
 }
 

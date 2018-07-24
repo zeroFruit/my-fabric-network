@@ -180,6 +180,8 @@ services:
       - my-network
     depends_on:
       - setup
+    ports:
+      - 7050:7050
 
   orderer2-org0:
     container_name: orderer2-org0
@@ -213,6 +215,8 @@ services:
       - my-network
     depends_on:
       - setup
+    ports:
+      - 8050:7050
 
   peer1-org1:
     container_name: peer1-org1

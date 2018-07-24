@@ -13,11 +13,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.498002">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="docker-compose.yaml" pinned="false" current-in-tab="false">
+          <file leaf-file-name="docker-compose.yaml" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1861">
-                  <caret line="173" column="62" selection-start-line="173" selection-start-column="62" selection-end-line="173" selection-end-column="62" />
+                <state relative-caret-position="142">
+                  <caret line="213" column="13" lean-forward="true" selection-start-line="213" selection-start-column="13" selection-end-line="213" selection-end-column="13" />
                 </state>
               </provider>
             </entry>
@@ -61,11 +61,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="configtx.yaml" pinned="false" current-in-tab="true">
+          <file leaf-file-name="configtx.yaml" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/data/configtx.yaml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-69">
-                  <caret line="56" column="14" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+                <state relative-caret-position="446">
+                  <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
                 </state>
               </provider>
             </entry>
@@ -104,8 +104,8 @@
           <file leaf-file-name="setup-fabric.sh" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/scripts/setup-fabric.sh">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="253">
-                  <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+                <state relative-caret-position="479">
+                  <caret line="114" column="32" lean-forward="true" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
                 </state>
               </provider>
             </entry>
@@ -113,8 +113,8 @@
           <file leaf-file-name="makeDocker.sh" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/makeDocker.sh">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+                <state relative-caret-position="242">
+                  <caret line="173" column="38" lean-forward="true" selection-start-line="173" selection-start-column="38" selection-end-line="173" selection-end-column="38" />
                 </state>
               </provider>
             </entry>
@@ -148,11 +148,11 @@
         <option value="$PROJECT_DIR$/scripts/start-orderer.sh" />
         <option value="$PROJECT_DIR$/docker-compose.yaml" />
         <option value="$PROJECT_DIR$/start.sh" />
-        <option value="$PROJECT_DIR$/makeDocker.sh" />
         <option value="$PROJECT_DIR$/scripts/start-intermediate-ca.sh" />
         <option value="$PROJECT_DIR$/scripts/start-peer.sh" />
         <option value="$PROJECT_DIR$/scripts/env.sh" />
         <option value="$PROJECT_DIR$/scripts/setup-fabric.sh" />
+        <option value="$PROJECT_DIR$/makeDocker.sh" />
       </list>
     </option>
   </component>
@@ -215,6 +215,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -292,7 +293,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13250000" />
+    <option name="totallyTimeSpent" value="13821000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="77" y="125" width="2225" height="1110" extended-state="0" />
@@ -573,13 +574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/makeDocker.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/orgs/org0/msp/admincerts/cert.pem">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -634,13 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1861">
-          <caret line="173" column="62" selection-start-line="173" selection-start-column="62" selection-end-line="173" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/logs/orderer1-org0.log">
       <provider selected="true" editor-type-id="LogFileEditorProvider">
         <state relative-caret-position="-6954" />
@@ -677,13 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/setup-fabric.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/logs/peer2-org2.log">
       <provider selected="true" editor-type-id="LogFileEditorProvider">
         <state relative-caret-position="-9504">
@@ -693,8 +673,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/configtx.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-69">
-          <caret line="56" column="14" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+        <state relative-caret-position="446">
+          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="213" column="13" lean-forward="true" selection-start-line="213" selection-start-column="13" selection-end-line="213" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/makeDocker.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="173" column="38" lean-forward="true" selection-start-line="173" selection-start-column="38" selection-end-line="173" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/setup-fabric.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="114" column="32" lean-forward="true" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
         </state>
       </provider>
     </entry>
