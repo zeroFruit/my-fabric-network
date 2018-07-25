@@ -1,13 +1,4 @@
 #!/bin/bash
-#
-# Copyright IBM Corp. All Rights Reserved.
-#
-# SPDX-License-Identifier: Apache-2.0
-#
-
-#
-# This script builds the docker compose file needed to run this sample.
-#
 
 SDIR=$(dirname "$0")
 source $SDIR/scripts/env.sh
@@ -116,6 +107,15 @@ function writeSetupFabric {
       initOrgVars $ORG
       echo "      - $CA_NAME"
    done
+
+   for kafka_org in $KAFKA_ORGS; do
+        count=1
+        while [[ "$count" -le $NUM_KAFKAS ]]; do
+            initKafkaVars $kafka_org $count
+            echo "      - $KAFKA_NAME"
+            count=$((count+1))
+        done
+   done
    echo ""
 }
 
@@ -141,6 +141,7 @@ function writeStartFabric {
 
    if test "$ORDERER_MODE" = "kafka"; then
         writeZookeeperList
+        writeKafkaList
    fi
 }
 
@@ -180,8 +181,18 @@ function writeOrderer {
     networks:
       - $NETWORK
     depends_on:
-      - setup
-    ports:
+      - setup"
+
+    for kafka_org in $KAFKA_ORGS; do
+        local count=1
+        while [[ "$count" -le $NUM_KAFKAS ]]; do
+            initKafkaVars $kafka_org $count
+            echo "      - $KAFKA_NAME"
+            count=$((count+1))
+        done
+    done
+
+    echo "    ports:
       - $port:7050
 "
 }
@@ -259,12 +270,14 @@ function writeZookeeper {
     image: hyperledger/fabric-zookeeper
     environment:
       - ZOO_SERVERS=$ZOO_SERVERS
-      - ZOO_MY_ID=$NUM
+      - ZOO_MY_ID=$num
     restart: always
     ports:
       - $(( ($num-1) * 10000 + 2181 )):2181
       - $(( ($num-1) * 10000 + 2888 )):2888
       - $(( ($num-1) * 10000 + 3888 )):3888
+    networks:
+      - my-network
     "
 }
 
@@ -272,13 +285,64 @@ function makeZooServersEnv {
     ZOO_SERVERS=""
 
     for ZOOKEEPER_ORG in $ZOOKEEPER_ORGS; do
-        local count=1
+        initZookeeperVars $ZOOKEEPER_ORG 1
+        ZOO_SERVERS="server.$count=$ZOOKEEPER_NAME:$ZOOKEEPER_FOLLOWER_PORT:$ZOOKEEPER_ELECTION_PORT"
+
+        local count=2
         while [[ "$count" -le $NUM_ZOOKEEPERS ]]; do
             initZookeeperVars $ZOOKEEPER_ORG $count
             ZOO_SERVERS="$ZOO_SERVERS server.$count=$ZOOKEEPER_NAME:$ZOOKEEPER_FOLLOWER_PORT:$ZOOKEEPER_ELECTION_PORT"
             count=$((count+1))
         done
     done
+    read -rd '' ZOO_SERVERS <<< "$ZOO_SERVERS"
+
+}
+
+function writeKafkaList {
+    for kafka_org in $KAFKA_ORGS; do
+        local count=1
+        while [[ "$count" -le $NUM_KAFKAS ]]; do
+            writeKafka $kafka_org $count
+            count=$((count+1))
+        done
+    done
+
+}
+
+function writeKafka {
+    local org=$1
+    local num=$2
+
+    initKafkaVars $org $num
+
+    echo "  $KAFKA_NAME:
+    container_name: $KAFKA_NAME
+    image: hyperledger/fabric-kafka
+    environment:
+      - KAFKA_BROKER_ID=$((num-1))
+      - KAFKA_MESSAGE_MAX_BYTES=$KAFKA_MESSAGE_MAX_BYTES
+      - KAFKA_REPLICA_FETCH_MAX_BYTES=$KAFKA_REPLICA_FETCH_MAX_BYTES
+      - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=$KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE
+      - KAFKA_MIN_INSYNC_REPLICAS=$KAFKA_MIN_INSYNC_REPLICAS
+      - KAFKA_DEFAULT_REPLICATION_FACTOR=$KAFKA_DEFAULT_REPLICATION_FACTOR
+      - KAFKA_ZOOKEEPER_CONNECT=$KAFKA_ZOOKEEPER_CONNECT
+    ports:
+      - $(( ($num-1) * 10000 + 9092 )):9092
+      - $(( ($num-1) * 10000 + 9093 )):9093
+    depends_on:"
+
+    for zookeeper_org in $ZOOKEEPER_ORGS; do
+        local count=1
+        while [[ "$count" -le $NUM_ZOOKEEPERS ]]; do
+            initZookeeperVars $zookeeper_org $count
+            echo "      - $ZOOKEEPER_NAME"
+            count=$((count+1))
+        done
+    done
+    echo "    networks:
+      - $NETWORK
+    "
 
 }
 

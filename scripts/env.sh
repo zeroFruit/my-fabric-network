@@ -1,14 +1,4 @@
 #!/bin/bash
-#
-# Copyright IBM Corp. All Rights Reserved.
-#
-# SPDX-License-Identifier: Apache-2.0
-#
-
-#
-# The following variables describe the topology and may be modified to provide
-# different organization names or the number of peers in each peer organization.
-#
 
 # Name of the docker-compose network
 NETWORK=my-network
@@ -30,11 +20,6 @@ ZOOKEEPER_ELECTION_PORT=3888
 
 KAFKA_ORGS="org0"
 NUM_KAFKAS=4
-
-
-#
-# The remainder of this file contains variables which typically would not be changed.
-#
 
 # All org names
 ORGS="$ORDERER_ORGS $PEER_ORGS"
@@ -175,6 +160,34 @@ function initZookeeperVars {
     ZOOKEEPER_LOGFILE=$LOGDIR/${ZOOKEEPER_NAME}.log
     MYHOME=/etc/hyperledger/zookeeper
 }
+
+function initKafkaVars {
+    local org=$1
+    local num=$2
+
+    KAFKA_NAME=kafka${num}-${org}
+    KAFKA_HOST=kafka${num}-${org}
+
+    KAFKA_MESSAGE_MAX_BYTES=103809024
+    KAFKA_REPLICA_FETCH_MAX_BYTES=103809024
+    KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+    KAFKA_MIN_INSYNC_REPLICAS=2
+    KAFKA_DEFAULT_REPLICATION_FACTOR=3
+
+    for zookeeper_org in $ZOOKEEPER_ORGS; do
+        initZookeeperVars $zookeeper_org 1
+        KAFKA_ZOOKEEPER_CONNECT="$ZOOKEEPER_HOST:2181"
+
+        local count=2
+        while [[ "$count" -le $NUM_ZOOKEEPERS ]]; do
+            initZookeeperVars $zookeeper_org $count
+            KAFKA_ZOOKEEPER_CONNECT="$KAFKA_ZOOKEEPER_CONNECT,$ZOOKEEPER_HOST:2181"
+            count=$((count+1))
+        done
+    done
+    read -rd '' KAFKA_ZOOKEEPER_CONNECT <<< "$KAFKA_ZOOKEEPER_CONNECT"
+}
+
 
 # initPeerVars <ORG> <NUM>
 function initPeerVars {

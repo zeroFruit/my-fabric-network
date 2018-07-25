@@ -1,2 +1,4 @@
 bin/
 .idea/
+data/
+docker-compose.yaml
